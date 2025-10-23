@@ -1,22 +1,22 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 
-const deployArtworkImpl: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployDAOImpl: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  const result = await deploy("ArtworkImpl", {
+  const result = await deploy("DAOImplementation", {
     from: deployer,
-    contract: "ArtworkImpl",
+    contract: "DAOImplementation",
     args: [],
     log: true,
     autoMine: true,
   });
 
-  console.log(`👋 ArtworkImpl deployed at: ${result.address}`);
+  console.log(`👋 DAOImplementation deployed at: ${result.address}`);
 };
 
-export default deployArtworkImpl;
+export default deployDAOImpl;
 // Tags are useful if you have multiple deploy files and only want to run one of them.
 // e.g. yarn deploy --tags DAOImplementation
-deployArtworkImpl.tags = ["ArtworkImpl"];
+deployDAOImpl.tags = ["DAOImplementation"];

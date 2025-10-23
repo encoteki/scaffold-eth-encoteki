@@ -1,0 +1,543 @@
+{
+  "address": "0x2D2D966903AF54f78D1EEC451F86BCCCC6DEF8Ee",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_daoImpl",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_bpImpl",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_erc721Address",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "FailedDeployment",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "needed",
+          "type": "uint256"
+        }
+      ],
+      "name": "InsufficientBalance",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum ProposalType",
+          "name": "proposalType",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProposalCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "bpImplementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "proposalName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "proposedFund",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct CreateProposal",
+          "name": "_config",
+          "type": "tuple"
+        }
+      ],
+      "name": "createBusinessProposal",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "proposalName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct CreateDAO",
+          "name": "_config",
+          "type": "tuple"
+        }
+      ],
+      "name": "createDAOProposal",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "daoImplementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "erc721Address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllProposals",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum ProposalType",
+              "name": "proposalType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "proposalAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "creator",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct ProposalInfo[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getProposal",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum ProposalType",
+              "name": "proposalType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "proposalAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "creator",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct ProposalInfo",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalProposals",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xfb3c6d324d04e72010e070ebc7e0d4029c91bd036b42573da41e1bbb32dde25b",
+  "receipt": {
+    "to": null,
+    "from": "0xE3906ddE92E4E70C73724C070430e28Fdf520071",
+    "contractAddress": "0x2D2D966903AF54f78D1EEC451F86BCCCC6DEF8Ee",
+    "transactionIndex": 16,
+    "gasUsed": "792003",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000100000000000000000020000000000000000000800000000000000000000000000000000400000000040000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020040000000000000000000000000000000000000000000000000000000000000400",
+    "blockHash": "0xc5476e33626efba1da530ca8ba8f91de98e3c92a223a859547418581efefa470",
+    "transactionHash": "0xfb3c6d324d04e72010e070ebc7e0d4029c91bd036b42573da41e1bbb32dde25b",
+    "logs": [
+      {
+        "transactionIndex": 16,
+        "blockNumber": 32727675,
+        "transactionHash": "0xfb3c6d324d04e72010e070ebc7e0d4029c91bd036b42573da41e1bbb32dde25b",
+        "address": "0x2D2D966903AF54f78D1EEC451F86BCCCC6DEF8Ee",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000e3906dde92e4e70c73724c070430e28fdf520071"
+        ],
+        "data": "0x",
+        "logIndex": 134,
+        "blockHash": "0xc5476e33626efba1da530ca8ba8f91de98e3c92a223a859547418581efefa470"
+      }
+    ],
+    "blockNumber": 32727675,
+    "cumulativeGasUsed": "6072696",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xB6b899b2343Dd703CD70d719bccf1c82E0979f0C",
+    "0xc25FA8c40Ef178a62502dB2C7153b24a64F6250b",
+    "0x905181635f2FEB3c62f6eF216106eF06c01b449E"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "3d3ce28210a2360bca15dc7ba23ab407",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_daoImpl\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_bpImpl\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_erc721Address\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"FailedDeployment\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"needed\",\"type\":\"uint256\"}],\"name\":\"InsufficientBalance\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum ProposalType\",\"name\":\"proposalType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"ProposalCreated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"bpImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"proposedFund\",\"type\":\"uint256\"}],\"internalType\":\"struct CreateProposal\",\"name\":\"_config\",\"type\":\"tuple\"}],\"name\":\"createBusinessProposal\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"internalType\":\"struct CreateDAO\",\"name\":\"_config\",\"type\":\"tuple\"}],\"name\":\"createDAOProposal\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"daoImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"erc721Address\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllProposals\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"enum ProposalType\",\"name\":\"proposalType\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"internalType\":\"struct ProposalInfo[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getProposal\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"enum ProposalType\",\"name\":\"proposalType\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"internalType\":\"struct ProposalInfo\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalProposals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"FailedDeployment()\":[{\"details\":\"The deployment failed.\"}],\"InsufficientBalance(uint256,uint256)\":[{\"details\":\"The ETH balance of the account is not enough to perform the operation.\"}],\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createBusinessProposal((string,uint256,uint256))\":{\"notice\":\"Creates a new BP proposal contract (ProposalType.BP).\"},\"createDAOProposal((string,uint256))\":{\"notice\":\"Creates a new DAO proposal contract (ProposalType.DAO).\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ProposalFactory.sol\":\"ProposalFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {ContextUpgradeable} from \\\"../utils/ContextUpgradeable.sol\\\";\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable\\n    struct OwnableStorage {\\n        address _owner;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Ownable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;\\n\\n    function _getOwnableStorage() private pure returns (OwnableStorage storage $) {\\n        assembly {\\n            $.slot := OwnableStorageLocation\\n        }\\n    }\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    function __Ownable_init(address initialOwner) internal onlyInitializing {\\n        __Ownable_init_unchained(initialOwner);\\n    }\\n\\n    function __Ownable_init_unchained(address initialOwner) internal onlyInitializing {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        return $._owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        address oldOwner = $._owner;\\n        $._owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xc163fcf9bb10138631a9ba5564df1fa25db9adff73bd9ee868a8ae1858fe093a\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.3.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Storage of the initializable contract.\\n     *\\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\\n     * when using with upgradeable contracts.\\n     *\\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\\n     */\\n    struct InitializableStorage {\\n        /**\\n         * @dev Indicates that the contract has been initialized.\\n         */\\n        uint64 _initialized;\\n        /**\\n         * @dev Indicates that the contract is in the process of being initialized.\\n         */\\n        bool _initializing;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Initializable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\\n\\n    /**\\n     * @dev The contract is already initialized.\\n     */\\n    error InvalidInitialization();\\n\\n    /**\\n     * @dev The contract is not initializing.\\n     */\\n    error NotInitializing();\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint64 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\\n     * production.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        // Cache values to avoid duplicated sloads\\n        bool isTopLevelCall = !$._initializing;\\n        uint64 initialized = $._initialized;\\n\\n        // Allowed calls:\\n        // - initialSetup: the contract is not in the initializing state and no previous version was\\n        //                 initialized\\n        // - construction: the contract is initialized at version 1 (no reinitialization) and the\\n        //                 current contract is just being deployed\\n        bool initialSetup = initialized == 0 && isTopLevelCall;\\n        bool construction = initialized == 1 && address(this).code.length == 0;\\n\\n        if (!initialSetup && !construction) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = 1;\\n        if (isTopLevelCall) {\\n            $._initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            $._initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint64 version) {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing || $._initialized >= version) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = version;\\n        $._initializing = true;\\n        _;\\n        $._initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        _checkInitializing();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\\n     */\\n    function _checkInitializing() internal view virtual {\\n        if (!_isInitializing()) {\\n            revert NotInitializing();\\n        }\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing) {\\n            revert InvalidInitialization();\\n        }\\n        if ($._initialized != type(uint64).max) {\\n            $._initialized = type(uint64).max;\\n            emit Initialized(type(uint64).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint64) {\\n        return _getInitializableStorage()._initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _getInitializableStorage()._initializing;\\n    }\\n\\n    /**\\n     * @dev Pointer to storage slot. Allows integrators to override it with a custom storage location.\\n     *\\n     * NOTE: Consider following the ERC-7201 formula to derive storage locations.\\n     */\\n    function _initializableStorageSlot() internal pure virtual returns (bytes32) {\\n        return INITIALIZABLE_STORAGE;\\n    }\\n\\n    /**\\n     * @dev Returns a pointer to the storage namespace.\\n     */\\n    // solhint-disable-next-line var-name-mixedcase\\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\\n        bytes32 slot = _initializableStorageSlot();\\n        assembly {\\n            $.slot := slot\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xdb4d24ee2c087c391d587cd17adfe5b3f9d93b3110b1388c2ab6c7c0ad1dcd05\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0xdbef5f0c787055227243a7318ef74c8a5a1108ca3a07f2b3a00ef67769e1e397\",\"license\":\"MIT\"},\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/proxy/Clones.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (proxy/Clones.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Create2} from \\\"../utils/Create2.sol\\\";\\nimport {Errors} from \\\"../utils/Errors.sol\\\";\\n\\n/**\\n * @dev https://eips.ethereum.org/EIPS/eip-1167[ERC-1167] is a standard for\\n * deploying minimal proxy contracts, also known as \\\"clones\\\".\\n *\\n * > To simply and cheaply clone contract functionality in an immutable way, this standard specifies\\n * > a minimal bytecode implementation that delegates all calls to a known, fixed address.\\n *\\n * The library includes functions to deploy a proxy using either `create` (traditional deployment) or `create2`\\n * (salted deterministic deployment). It also includes functions to predict the addresses of clones deployed using the\\n * deterministic method.\\n */\\nlibrary Clones {\\n    error CloneArgumentsTooLong();\\n\\n    /**\\n     * @dev Deploys and returns the address of a clone that mimics the behavior of `implementation`.\\n     *\\n     * This function uses the create opcode, which should never revert.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     */\\n    function clone(address implementation) internal returns (address instance) {\\n        return clone(implementation, 0);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Clones-clone-address-}[clone], but with a `value` parameter to send native currency\\n     * to the new contract.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     *\\n     * NOTE: Using a non-zero value at creation will require the contract using this function (e.g. a factory)\\n     * to always have enough balance for new deployments. Consider exposing this function under a payable method.\\n     */\\n    function clone(address implementation, uint256 value) internal returns (address instance) {\\n        if (address(this).balance < value) {\\n            revert Errors.InsufficientBalance(address(this).balance, value);\\n        }\\n        assembly (\\\"memory-safe\\\") {\\n            // Cleans the upper 96 bits of the `implementation` word, then packs the first 3 bytes\\n            // of the `implementation` address with the bytecode before the address.\\n            mstore(0x00, or(shr(0xe8, shl(0x60, implementation)), 0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000))\\n            // Packs the remaining 17 bytes of `implementation` with the bytecode after the address.\\n            mstore(0x20, or(shl(0x78, implementation), 0x5af43d82803e903d91602b57fd5bf3))\\n            instance := create(value, 0x09, 0x37)\\n        }\\n        if (instance == address(0)) {\\n            revert Errors.FailedDeployment();\\n        }\\n    }\\n\\n    /**\\n     * @dev Deploys and returns the address of a clone that mimics the behavior of `implementation`.\\n     *\\n     * This function uses the create2 opcode and a `salt` to deterministically deploy\\n     * the clone. Using the same `implementation` and `salt` multiple times will revert, since\\n     * the clones cannot be deployed twice at the same address.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     */\\n    function cloneDeterministic(address implementation, bytes32 salt) internal returns (address instance) {\\n        return cloneDeterministic(implementation, salt, 0);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Clones-cloneDeterministic-address-bytes32-}[cloneDeterministic], but with\\n     * a `value` parameter to send native currency to the new contract.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     *\\n     * NOTE: Using a non-zero value at creation will require the contract using this function (e.g. a factory)\\n     * to always have enough balance for new deployments. Consider exposing this function under a payable method.\\n     */\\n    function cloneDeterministic(\\n        address implementation,\\n        bytes32 salt,\\n        uint256 value\\n    ) internal returns (address instance) {\\n        if (address(this).balance < value) {\\n            revert Errors.InsufficientBalance(address(this).balance, value);\\n        }\\n        assembly (\\\"memory-safe\\\") {\\n            // Cleans the upper 96 bits of the `implementation` word, then packs the first 3 bytes\\n            // of the `implementation` address with the bytecode before the address.\\n            mstore(0x00, or(shr(0xe8, shl(0x60, implementation)), 0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000))\\n            // Packs the remaining 17 bytes of `implementation` with the bytecode after the address.\\n            mstore(0x20, or(shl(0x78, implementation), 0x5af43d82803e903d91602b57fd5bf3))\\n            instance := create2(value, 0x09, 0x37, salt)\\n        }\\n        if (instance == address(0)) {\\n            revert Errors.FailedDeployment();\\n        }\\n    }\\n\\n    /**\\n     * @dev Computes the address of a clone deployed using {Clones-cloneDeterministic}.\\n     */\\n    function predictDeterministicAddress(\\n        address implementation,\\n        bytes32 salt,\\n        address deployer\\n    ) internal pure returns (address predicted) {\\n        assembly (\\\"memory-safe\\\") {\\n            let ptr := mload(0x40)\\n            mstore(add(ptr, 0x38), deployer)\\n            mstore(add(ptr, 0x24), 0x5af43d82803e903d91602b57fd5bf3ff)\\n            mstore(add(ptr, 0x14), implementation)\\n            mstore(ptr, 0x3d602d80600a3d3981f3363d3d373d3d3d363d73)\\n            mstore(add(ptr, 0x58), salt)\\n            mstore(add(ptr, 0x78), keccak256(add(ptr, 0x0c), 0x37))\\n            predicted := and(keccak256(add(ptr, 0x43), 0x55), 0xffffffffffffffffffffffffffffffffffffffff)\\n        }\\n    }\\n\\n    /**\\n     * @dev Computes the address of a clone deployed using {Clones-cloneDeterministic}.\\n     */\\n    function predictDeterministicAddress(\\n        address implementation,\\n        bytes32 salt\\n    ) internal view returns (address predicted) {\\n        return predictDeterministicAddress(implementation, salt, address(this));\\n    }\\n\\n    /**\\n     * @dev Deploys and returns the address of a clone that mimics the behavior of `implementation` with custom\\n     * immutable arguments. These are provided through `args` and cannot be changed after deployment. To\\n     * access the arguments within the implementation, use {fetchCloneArgs}.\\n     *\\n     * This function uses the create opcode, which should never revert.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     */\\n    function cloneWithImmutableArgs(address implementation, bytes memory args) internal returns (address instance) {\\n        return cloneWithImmutableArgs(implementation, args, 0);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Clones-cloneWithImmutableArgs-address-bytes-}[cloneWithImmutableArgs], but with a `value`\\n     * parameter to send native currency to the new contract.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     *\\n     * NOTE: Using a non-zero value at creation will require the contract using this function (e.g. a factory)\\n     * to always have enough balance for new deployments. Consider exposing this function under a payable method.\\n     */\\n    function cloneWithImmutableArgs(\\n        address implementation,\\n        bytes memory args,\\n        uint256 value\\n    ) internal returns (address instance) {\\n        if (address(this).balance < value) {\\n            revert Errors.InsufficientBalance(address(this).balance, value);\\n        }\\n        bytes memory bytecode = _cloneCodeWithImmutableArgs(implementation, args);\\n        assembly (\\\"memory-safe\\\") {\\n            instance := create(value, add(bytecode, 0x20), mload(bytecode))\\n        }\\n        if (instance == address(0)) {\\n            revert Errors.FailedDeployment();\\n        }\\n    }\\n\\n    /**\\n     * @dev Deploys and returns the address of a clone that mimics the behavior of `implementation` with custom\\n     * immutable arguments. These are provided through `args` and cannot be changed after deployment. To\\n     * access the arguments within the implementation, use {fetchCloneArgs}.\\n     *\\n     * This function uses the create2 opcode and a `salt` to deterministically deploy the clone. Using the same\\n     * `implementation`, `args` and `salt` multiple times will revert, since the clones cannot be deployed twice\\n     * at the same address.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     */\\n    function cloneDeterministicWithImmutableArgs(\\n        address implementation,\\n        bytes memory args,\\n        bytes32 salt\\n    ) internal returns (address instance) {\\n        return cloneDeterministicWithImmutableArgs(implementation, args, salt, 0);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Clones-cloneDeterministicWithImmutableArgs-address-bytes-bytes32-}[cloneDeterministicWithImmutableArgs],\\n     * but with a `value` parameter to send native currency to the new contract.\\n     *\\n     * WARNING: This function does not check if `implementation` has code. A clone that points to an address\\n     * without code cannot be initialized. Initialization calls may appear to be successful when, in reality, they\\n     * have no effect and leave the clone uninitialized, allowing a third party to initialize it later.\\n     *\\n     * NOTE: Using a non-zero value at creation will require the contract using this function (e.g. a factory)\\n     * to always have enough balance for new deployments. Consider exposing this function under a payable method.\\n     */\\n    function cloneDeterministicWithImmutableArgs(\\n        address implementation,\\n        bytes memory args,\\n        bytes32 salt,\\n        uint256 value\\n    ) internal returns (address instance) {\\n        bytes memory bytecode = _cloneCodeWithImmutableArgs(implementation, args);\\n        return Create2.deploy(value, salt, bytecode);\\n    }\\n\\n    /**\\n     * @dev Computes the address of a clone deployed using {Clones-cloneDeterministicWithImmutableArgs}.\\n     */\\n    function predictDeterministicAddressWithImmutableArgs(\\n        address implementation,\\n        bytes memory args,\\n        bytes32 salt,\\n        address deployer\\n    ) internal pure returns (address predicted) {\\n        bytes memory bytecode = _cloneCodeWithImmutableArgs(implementation, args);\\n        return Create2.computeAddress(salt, keccak256(bytecode), deployer);\\n    }\\n\\n    /**\\n     * @dev Computes the address of a clone deployed using {Clones-cloneDeterministicWithImmutableArgs}.\\n     */\\n    function predictDeterministicAddressWithImmutableArgs(\\n        address implementation,\\n        bytes memory args,\\n        bytes32 salt\\n    ) internal view returns (address predicted) {\\n        return predictDeterministicAddressWithImmutableArgs(implementation, args, salt, address(this));\\n    }\\n\\n    /**\\n     * @dev Get the immutable args attached to a clone.\\n     *\\n     * - If `instance` is a clone that was deployed using `clone` or `cloneDeterministic`, this\\n     *   function will return an empty array.\\n     * - If `instance` is a clone that was deployed using `cloneWithImmutableArgs` or\\n     *   `cloneDeterministicWithImmutableArgs`, this function will return the args array used at\\n     *   creation.\\n     * - If `instance` is NOT a clone deployed using this library, the behavior is undefined. This\\n     *   function should only be used to check addresses that are known to be clones.\\n     */\\n    function fetchCloneArgs(address instance) internal view returns (bytes memory) {\\n        bytes memory result = new bytes(instance.code.length - 45); // revert if length is too short\\n        assembly (\\\"memory-safe\\\") {\\n            extcodecopy(instance, add(result, 32), 45, mload(result))\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Helper that prepares the initcode of the proxy with immutable args.\\n     *\\n     * An assembly variant of this function requires copying the `args` array, which can be efficiently done using\\n     * `mcopy`. Unfortunately, that opcode is not available before cancun. A pure solidity implementation using\\n     * abi.encodePacked is more expensive but also more portable and easier to review.\\n     *\\n     * NOTE: https://eips.ethereum.org/EIPS/eip-170[EIP-170] limits the length of the contract code to 24576 bytes.\\n     * With the proxy code taking 45 bytes, that limits the length of the immutable args to 24531 bytes.\\n     */\\n    function _cloneCodeWithImmutableArgs(\\n        address implementation,\\n        bytes memory args\\n    ) private pure returns (bytes memory) {\\n        if (args.length > 24531) revert CloneArgumentsTooLong();\\n        return\\n            abi.encodePacked(\\n                hex\\\"61\\\",\\n                uint16(args.length + 45),\\n                hex\\\"3d81600a3d39f3363d3d373d3d3d363d73\\\",\\n                implementation,\\n                hex\\\"5af43d82803e903d91602b57fd5bf3\\\",\\n                args\\n            );\\n    }\\n}\\n\",\"keccak256\":\"0x7e918671c04972845975935ea13c9ce0be1228031ba0e929d0f1f68fd1f17214\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (token/ERC721/IERC721.sol)\\n\\npragma solidity >=0.6.2;\\n\\nimport {IERC165} from \\\"../../utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @dev Required interface of an ERC-721 compliant contract.\\n */\\ninterface IERC721 is IERC165 {\\n    /**\\n     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.\\n     */\\n    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\\n     */\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    /**\\n     * @dev Returns the number of tokens in ``owner``'s account.\\n     */\\n    function balanceOf(address owner) external view returns (uint256 balance);\\n\\n    /**\\n     * @dev Returns the owner of the `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function ownerOf(uint256 tokenId) external view returns (address owner);\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon\\n     *   a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients\\n     * are aware of the ERC-721 protocol to prevent tokens from being forever locked.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must have been allowed to move this token by either {approve} or\\n     *   {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon\\n     *   a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Transfers `tokenId` token from `from` to `to`.\\n     *\\n     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC-721\\n     * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must\\n     * understand this adds an external call which potentially creates a reentrancy vulnerability.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Gives permission to `to` to transfer `tokenId` token to another account.\\n     * The approval is cleared when the token is transferred.\\n     *\\n     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.\\n     *\\n     * Requirements:\\n     *\\n     * - The caller must own the token or be an approved operator.\\n     * - `tokenId` must exist.\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Approve or remove `operator` as an operator for the caller.\\n     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.\\n     *\\n     * Requirements:\\n     *\\n     * - The `operator` cannot be the address zero.\\n     *\\n     * Emits an {ApprovalForAll} event.\\n     */\\n    function setApprovalForAll(address operator, bool approved) external;\\n\\n    /**\\n     * @dev Returns the account approved for `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function getApproved(uint256 tokenId) external view returns (address operator);\\n\\n    /**\\n     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.\\n     *\\n     * See {setApprovalForAll}\\n     */\\n    function isApprovedForAll(address owner, address operator) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xf78f05f3b8c9f75570e85300d7b4600d7f6f6a198449273f31d44c1641adb46f\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Create2.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.1.0) (utils/Create2.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Errors} from \\\"./Errors.sol\\\";\\n\\n/**\\n * @dev Helper to make usage of the `CREATE2` EVM opcode easier and safer.\\n * `CREATE2` can be used to compute in advance the address where a smart\\n * contract will be deployed, which allows for interesting new mechanisms known\\n * as 'counterfactual interactions'.\\n *\\n * See the https://eips.ethereum.org/EIPS/eip-1014#motivation[EIP] for more\\n * information.\\n */\\nlibrary Create2 {\\n    /**\\n     * @dev There's no code to deploy.\\n     */\\n    error Create2EmptyBytecode();\\n\\n    /**\\n     * @dev Deploys a contract using `CREATE2`. The address where the contract\\n     * will be deployed can be known in advance via {computeAddress}.\\n     *\\n     * The bytecode for a contract can be obtained from Solidity with\\n     * `type(contractName).creationCode`.\\n     *\\n     * Requirements:\\n     *\\n     * - `bytecode` must not be empty.\\n     * - `salt` must have not been used for `bytecode` already.\\n     * - the factory must have a balance of at least `amount`.\\n     * - if `amount` is non-zero, `bytecode` must have a `payable` constructor.\\n     */\\n    function deploy(uint256 amount, bytes32 salt, bytes memory bytecode) internal returns (address addr) {\\n        if (address(this).balance < amount) {\\n            revert Errors.InsufficientBalance(address(this).balance, amount);\\n        }\\n        if (bytecode.length == 0) {\\n            revert Create2EmptyBytecode();\\n        }\\n        assembly (\\\"memory-safe\\\") {\\n            addr := create2(amount, add(bytecode, 0x20), mload(bytecode), salt)\\n            // if no address was created, and returndata is not empty, bubble revert\\n            if and(iszero(addr), not(iszero(returndatasize()))) {\\n                let p := mload(0x40)\\n                returndatacopy(p, 0, returndatasize())\\n                revert(p, returndatasize())\\n            }\\n        }\\n        if (addr == address(0)) {\\n            revert Errors.FailedDeployment();\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the address where a contract will be stored if deployed via {deploy}. Any change in the\\n     * `bytecodeHash` or `salt` will result in a new destination address.\\n     */\\n    function computeAddress(bytes32 salt, bytes32 bytecodeHash) internal view returns (address) {\\n        return computeAddress(salt, bytecodeHash, address(this));\\n    }\\n\\n    /**\\n     * @dev Returns the address where a contract will be stored if deployed via {deploy} from a contract located at\\n     * `deployer`. If `deployer` is this contract's address, returns the same value as {computeAddress}.\\n     */\\n    function computeAddress(bytes32 salt, bytes32 bytecodeHash, address deployer) internal pure returns (address addr) {\\n        assembly (\\\"memory-safe\\\") {\\n            let ptr := mload(0x40) // Get free memory pointer\\n\\n            // |                   | \\u2193 ptr ...  \\u2193 ptr + 0x0B (start) ...  \\u2193 ptr + 0x20 ...  \\u2193 ptr + 0x40 ...   |\\n            // |-------------------|---------------------------------------------------------------------------|\\n            // | bytecodeHash      |                                                        CCCCCCCCCCCCC...CC |\\n            // | salt              |                                      BBBBBBBBBBBBB...BB                   |\\n            // | deployer          | 000000...0000AAAAAAAAAAAAAAAAAAA...AA                                     |\\n            // | 0xFF              |            FF                                                             |\\n            // |-------------------|---------------------------------------------------------------------------|\\n            // | memory            | 000000...00FFAAAAAAAAAAAAAAAAAAA...AABBBBBBBBBBBBB...BBCCCCCCCCCCCCC...CC |\\n            // | keccak(start, 85) |            \\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191\\u2191 |\\n\\n            mstore(add(ptr, 0x40), bytecodeHash)\\n            mstore(add(ptr, 0x20), salt)\\n            mstore(ptr, deployer) // Right-aligned with 12 preceding garbage bytes\\n            let start := add(ptr, 0x0b) // The hashed data starts at the final garbage byte which we will set to 0xff\\n            mstore8(start, 0xff)\\n            addr := and(keccak256(start, 85), 0xffffffffffffffffffffffffffffffffffffffff)\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xbb7e8401583d26268ea9103013bcdcd90866a7718bd91105ebd21c9bf11f4f06\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Errors.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.1.0) (utils/Errors.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Collection of common custom errors used in multiple contracts\\n *\\n * IMPORTANT: Backwards compatibility is not guaranteed in future versions of the library.\\n * It is recommended to avoid relying on the error API for critical functionality.\\n *\\n * _Available since v5.1._\\n */\\nlibrary Errors {\\n    /**\\n     * @dev The ETH balance of the account is not enough to perform the operation.\\n     */\\n    error InsufficientBalance(uint256 balance, uint256 needed);\\n\\n    /**\\n     * @dev A call to an address target failed. The target may have reverted.\\n     */\\n    error FailedCall();\\n\\n    /**\\n     * @dev The deployment failed.\\n     */\\n    error FailedDeployment();\\n\\n    /**\\n     * @dev A necessary precompile is missing.\\n     */\\n    error MissingPrecompile(address);\\n}\\n\",\"keccak256\":\"0x6afa713bfd42cf0f7656efa91201007ac465e42049d7de1d50753a373648c123\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (utils/introspection/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[ERC].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c\",\"license\":\"MIT\"},\"contracts/BusinessProposalImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\n\\nimport { CreateProposal } from \\\"./structs/ProposalStructs.sol\\\";\\n\\n/**\\n * @title BusinessProposalImplementation\\n * @notice Implementation for Business Proposal with a hard fundraising cap.\\n */\\ncontract BusinessProposalImplementation is Initializable, OwnableUpgradeable {\\n    // --------------------------------------------------\\n    // Errors (gas-efficient reverts)\\n    // --------------------------------------------------\\n    error OnlyFactory();\\n    error InvalidAmount();\\n    error CapExceeded();\\n\\n    // --------------------------------------------------\\n    // State Variables\\n    // --------------------------------------------------\\n    address public factoryAddress;\\n    address public erc721Address;\\n\\n    string public proposalName;\\n    uint256 public id;\\n    uint256 public proposedFund; // fundraising target (cap)\\n    uint256 public totalAllocated; // sum of all allocations\\n\\n    /// @notice Mapping [participantAddress] => allocated amount\\n    mapping(address => uint256) public allocatedFund;\\n\\n    // --------------------------------------------------\\n    // Events\\n    // --------------------------------------------------\\n    event InitializeProposal(address indexed proposalAddress, address owner, string proposalName, uint256 proposedFund);\\n\\n    event ProposalVoted(\\n        // kept your naming; here it represents \\\"allocation\\\"\\n        address indexed voter,\\n        address indexed proposalAddress,\\n        uint256 amount\\n    );\\n\\n    event FundsAllocated(address indexed voter, uint256 amount);\\n\\n    // --------------------------------------------------\\n    // Constructor\\n    // --------------------------------------------------\\n    /// @dev Lock the logic/implementation contract.\\n    constructor() {\\n        _disableInitializers();\\n    }\\n\\n    // --------------------------------------------------\\n    // Initializer\\n    // --------------------------------------------------\\n    /**\\n     * @notice Initializes the contract with the given parameters.\\n     * @param _factoryAddress The address of ProposalFactory.\\n     * @param _erc721Address Optional reference (kept for symmetry/extensibility).\\n     * @param _config Proposal config (expects proposalName, id, proposedFund).\\n     * @param _initialOwner The EOA that will own/admin this clone.\\n     */\\n    function initialize(\\n        address _factoryAddress,\\n        address _erc721Address,\\n        CreateProposal calldata _config,\\n        address _initialOwner\\n    ) public initializer {\\n        if (msg.sender != _factoryAddress) revert OnlyFactory();\\n\\n        __Ownable_init(_initialOwner);\\n\\n        factoryAddress = _factoryAddress;\\n        erc721Address = _erc721Address;\\n\\n        proposalName = _config.proposalName;\\n        id = _config.id;\\n        proposedFund = _config.proposedFund;\\n\\n        emit InitializeProposal(address(this), owner(), proposalName, proposedFund);\\n    }\\n\\n    // --------------------------------------------------\\n    // WRITE: Allocate (a.k.a. \\\"vote with funds\\\")\\n    // --------------------------------------------------\\n    /**\\n     * @notice Allocate funds towards this proposal (tracked in contract state).\\n     * @dev Enforces that totalAllocated never exceeds proposedFund.\\n     */\\n    function fund(uint256 amount) external {\\n        if (amount == 0) revert InvalidAmount();\\n\\n        uint256 newTotal = totalAllocated + amount;\\n        if (newTotal > proposedFund) revert CapExceeded();\\n\\n        allocatedFund[msg.sender] += amount;\\n        totalAllocated = newTotal;\\n\\n        emit ProposalVoted(msg.sender, address(this), amount);\\n        emit FundsAllocated(msg.sender, amount);\\n    }\\n\\n    // --------------------------------------------------\\n    // VIEWS: Helpers\\n    // --------------------------------------------------\\n    /// @notice Remaining capacity before reaching the cap.\\n    function remainingFund() public view returns (uint256) {\\n        uint256 allocated = totalAllocated;\\n        return allocated >= proposedFund ? 0 : (proposedFund - allocated);\\n    }\\n\\n    /// @notice Whether the cap has been fully reached.\\n    function isFull() public view returns (bool) {\\n        return totalAllocated >= proposedFund;\\n    }\\n\\n    /// @notice Whether a given amount could be allocated right now.\\n    function canAllocate(uint256 amount) public view returns (bool) {\\n        return amount > 0 && (totalAllocated + amount) <= proposedFund;\\n    }\\n\\n    /// @notice Headroom for a specific user (currently same as global remaining).\\n    /// @dev Kept in case you later add per-user limits/logic.\\n    function availableToAllocate(address /*user*/) public view returns (uint256) {\\n        return remainingFund();\\n    }\\n}\\n\",\"keccak256\":\"0x64d61257ad17dc37c7c3cd23d080e0f04ed5b09b9d92305a2735bf13d0c273aa\",\"license\":\"MIT\"},\"contracts/DAOImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC721/IERC721.sol\\\";\\n\\nimport { CreateDAO } from \\\"./structs/ProposalStructs.sol\\\";\\n\\n/**\\n * @title DAOImplementation\\n * @notice ERC721 token-gated voting (1 NFT = 1 vote per tokenId).\\n * - Optional option validation (owner seeds valid options, then locks them).\\n * - Tallies per option.\\n * - Bulk voting, pause/unpause, gas-friendly errors.\\n */\\ncontract DAOImplementation is Initializable, OwnableUpgradeable {\\n\\t// --------------------------------------------------\\n\\t// Errors (gas efficient)\\n\\t// --------------------------------------------------\\n\\terror OnlyFactory();\\n\\terror ZeroAddress();\\n\\terror VotingTokenNotSet();\\n\\terror AlreadyVoted(uint256 tokenId);\\n\\terror NotTokenOwner(uint256 tokenId);\\n\\terror InvalidOption(uint256 optionId);\\n\\terror EmptyArray();\\n\\terror Paused();\\n\\n\\t// --------------------------------------------------\\n\\t// State\\n\\t// --------------------------------------------------\\n\\taddress public factoryAddress;\\n\\taddress public erc721Address;\\n\\n\\tstring public proposalName;\\n\\tuint256 public id;\\n\\n\\t/// tokenId => has voted\\n\\tmapping(uint256 => bool) public hasVoted;\\n\\n\\t/// tokenId => optionId chosen\\n\\tmapping(uint256 => uint256) public vote;\\n\\n\\t/// optionId => votes\\n\\tmapping(uint256 => uint256) public optionTally;\\n\\n\\t/// Total votes cast (sum of all option tallies)\\n\\tuint256 public totalVotesCast;\\n\\n\\t// --------------------------------------------------\\n\\t// Events\\n\\t// --------------------------------------------------\\n\\tevent InitializeProposal(\\n\\t\\taddress indexed proposalAddress,\\n\\t\\taddress owner,\\n\\t\\tstring proposalName,\\n\\t\\taddress erc721Address\\n\\t);\\n\\n\\tevent ProposalVoted(\\n\\t\\tuint256 indexed tokenId,\\n\\t\\taddress indexed voter,\\n\\t\\tuint256 indexed optionId\\n\\t);\\n\\n\\t// --------------------------------------------------\\n\\t// Constructor (locks logic contract)\\n\\t// --------------------------------------------------\\n\\tconstructor() {\\n\\t\\t_disableInitializers();\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Initializer\\n\\t// --------------------------------------------------\\n\\t/**\\n\\t * @param _factoryAddress ProposalFactory address (must be msg.sender).\\n\\t * @param _erc721Address  ERC721 collection granting voting rights.\\n\\t * @param _config         DAO config (expects proposalName, id).\\n\\t * @param _initialOwner   Admin/owner for this clone.\\n\\t */\\n\\tfunction initialize(\\n\\t\\taddress _factoryAddress,\\n\\t\\taddress _erc721Address,\\n\\t\\tCreateDAO calldata _config,\\n\\t\\taddress _initialOwner\\n\\t) public initializer {\\n\\t\\tif (msg.sender != _factoryAddress) revert OnlyFactory();\\n\\t\\tif (_erc721Address == address(0)) revert ZeroAddress();\\n\\n\\t\\t__Ownable_init(_initialOwner);\\n\\n\\t\\tfactoryAddress = _factoryAddress;\\n\\t\\terc721Address = _erc721Address;\\n\\n\\t\\tproposalName = _config.proposalName;\\n\\t\\tid = _config.id;\\n\\n\\t\\temit InitializeProposal(\\n\\t\\t\\taddress(this),\\n\\t\\t\\towner(),\\n\\t\\t\\tproposalName,\\n\\t\\t\\terc721Address\\n\\t\\t);\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Voting\\n\\t// --------------------------------------------------\\n\\n\\t/**\\n\\t * @notice Cast one vote using a specific tokenId.\\n\\t * @dev    Caller must own `tokenId` at call time. Each tokenId votes once.\\n\\t */\\n\\tfunction voteDAO(uint256 tokenId, uint256 optionId) external {\\n\\t\\tif (erc721Address == address(0)) revert VotingTokenNotSet();\\n\\t\\tif (hasVoted[tokenId]) revert AlreadyVoted(tokenId);\\n\\t\\tif (IERC721(erc721Address).ownerOf(tokenId) != msg.sender)\\n\\t\\t\\trevert NotTokenOwner(tokenId);\\n\\n\\t\\thasVoted[tokenId] = true;\\n\\t\\tvote[tokenId] = optionId;\\n\\t\\tunchecked {\\n\\t\\t\\toptionTally[optionId] += 1;\\n\\t\\t\\ttotalVotesCast += 1;\\n\\t\\t}\\n\\n\\t\\temit ProposalVoted(tokenId, msg.sender, optionId);\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Views\\n\\t// --------------------------------------------------\\n\\tfunction getTally(uint256 optionId) external view returns (uint256) {\\n\\t\\treturn optionTally[optionId];\\n\\t}\\n\\n\\tfunction canVote(\\n\\t\\taddress voter,\\n\\t\\tuint256 tokenId\\n\\t) external view returns (bool) {\\n\\t\\tif (erc721Address == address(0) || hasVoted[tokenId]) return false;\\n\\t\\treturn IERC721(erc721Address).ownerOf(tokenId) == voter;\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Upgradeable storage gap\\n\\t// --------------------------------------------------\\n\\tuint256[40] private __gap;\\n}\\n\",\"keccak256\":\"0x34ecc75b67baffde03eec9d3cca9393c12ce980c38440e646a1d75dc6fd81cab\",\"license\":\"MIT\"},\"contracts/ProposalFactory.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts/proxy/Clones.sol\\\";\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\n\\nimport \\\"./BusinessProposalImplementation.sol\\\";\\nimport \\\"./DAOImplementation.sol\\\";\\nimport { ProposalInfo, ProposalType, CreateDAO, CreateProposal } from \\\"./structs/ProposalStructs.sol\\\";\\n\\ncontract ProposalFactory is Ownable {\\n\\tusing Clones for address;\\n\\n\\t// ---------------------------------------------------------------------\\n\\t// Types / Events\\n\\t// ---------------------------------------------------------------------\\n\\n\\tevent ProposalCreated(\\n\\t\\taddress indexed creator,\\n\\t\\taddress indexed proposalAddress,\\n\\t\\tProposalType proposalType,\\n\\t\\tuint256 id\\n\\t);\\n\\n\\t// ---------------------------------------------------------------------\\n\\t// Storage\\n\\t// ---------------------------------------------------------------------\\n\\n\\taddress public daoImplementation;\\n\\taddress public bpImplementation;\\n\\taddress public erc721Address;\\n\\n\\tProposalInfo[] private _proposals;\\n\\n\\tconstructor(\\n\\t\\taddress _daoImpl,\\n\\t\\taddress _bpImpl,\\n\\t\\taddress _erc721Address\\n\\t) Ownable(msg.sender) {\\n\\t\\tdaoImplementation = _daoImpl;\\n\\t\\tbpImplementation = _bpImpl;\\n\\t\\terc721Address = _erc721Address;\\n\\t}\\n\\n\\t// ---------------------------------------------------------------------\\n\\t// Create functions (split)\\n\\t// ---------------------------------------------------------------------\\n\\n\\t/**\\n\\t * @notice Creates a new DAO proposal contract (ProposalType.DAO).\\n\\t */\\n\\tfunction createDAOProposal(\\n\\t\\tCreateDAO calldata _config\\n\\t) external returns (address proposalAddress) {\\n\\t\\tproposalAddress = daoImplementation.clone();\\n\\t\\t// owner of the clone = msg.sender (EOA that called the factory)\\n\\t\\tDAOImplementation(proposalAddress).initialize(\\n\\t\\t\\taddress(this),\\n\\t\\t\\terc721Address,\\n\\t\\t\\t_config,\\n\\t\\t\\tmsg.sender\\n\\t\\t);\\n\\n\\t\\tuint256 newId = _proposals.length + 1;\\n\\t\\t_proposals.push(\\n\\t\\t\\tProposalInfo(newId, ProposalType.DAO, proposalAddress, msg.sender)\\n\\t\\t);\\n\\n\\t\\temit ProposalCreated(\\n\\t\\t\\tmsg.sender,\\n\\t\\t\\tproposalAddress,\\n\\t\\t\\tProposalType.DAO,\\n\\t\\t\\tnewId\\n\\t\\t);\\n\\t}\\n\\n\\t/**\\n\\t * @notice Creates a new BP proposal contract (ProposalType.BP).\\n\\t */\\n\\tfunction createBusinessProposal(\\n\\t\\tCreateProposal calldata _config\\n\\t) external returns (address proposalAddress) {\\n\\t\\tproposalAddress = bpImplementation.clone();\\n\\t\\t// owner of the clone = msg.sender (EOA that called the factory)\\n\\t\\tBusinessProposalImplementation(proposalAddress).initialize(\\n\\t\\t\\taddress(this),\\n\\t\\t\\terc721Address,\\n\\t\\t\\t_config,\\n\\t\\t\\tmsg.sender\\n\\t\\t);\\n\\n\\t\\tuint256 newId = _proposals.length + 1;\\n\\t\\t_proposals.push(\\n\\t\\t\\tProposalInfo(\\n\\t\\t\\t\\tnewId,\\n\\t\\t\\t\\tProposalType.Business,\\n\\t\\t\\t\\tproposalAddress,\\n\\t\\t\\t\\tmsg.sender\\n\\t\\t\\t)\\n\\t\\t);\\n\\n\\t\\temit ProposalCreated(\\n\\t\\t\\tmsg.sender,\\n\\t\\t\\tproposalAddress,\\n\\t\\t\\tProposalType.Business,\\n\\t\\t\\tnewId\\n\\t\\t);\\n\\t}\\n\\n\\t// ---------------------------------------------------------------------\\n\\t// Getter functions\\n\\t// ---------------------------------------------------------------------\\n\\n\\tfunction getProposal(\\n\\t\\tuint256 id\\n\\t) external view returns (ProposalInfo memory) {\\n\\t\\trequire(id < _proposals.length, \\\"Proposal does not exist\\\");\\n\\t\\treturn _proposals[id];\\n\\t}\\n\\n\\tfunction getAllProposals() external view returns (ProposalInfo[] memory) {\\n\\t\\treturn _proposals;\\n\\t}\\n\\n\\tfunction totalProposals() external view returns (uint256) {\\n\\t\\treturn _proposals.length;\\n\\t}\\n}\\n\",\"keccak256\":\"0x2acfd87aad43d5df5dc8e3adc78dff0f839d1bff647013c2b49d08fc4bcb72ff\",\"license\":\"MIT\"},\"contracts/structs/ProposalStructs.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nstruct CreateDAO {\\n    string proposalName;\\n    uint256 id;\\n}\\n\\nstruct CreateProposal {\\n    string proposalName;\\n    uint256 id;\\n    uint256 proposedFund;\\n}\\n\\nenum ProposalType {\\n    DAO,\\n    Business\\n}\\n\\nstruct ProposalInfo {\\n    uint256 id;\\n    ProposalType proposalType;\\n    address proposalAddress;\\n    address creator;\\n}\\n\",\"keccak256\":\"0x19116bb2f34910197dfd5b935ad20ce93947480c706b9c1e9822652dd12cbe3f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051610cfd380380610cfd83398101604081905261002f9161010d565b338061005557604051631e4fbdf760e01b81526000600482015260240160405180910390fd5b61005e816100a1565b50600180546001600160a01b039485166001600160a01b031991821617909155600280549385169382169390931790925560038054919093169116179055610150565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80516001600160a01b038116811461010857600080fd5b919050565b60008060006060848603121561012257600080fd5b61012b846100f1565b9250610139602085016100f1565b9150610147604085016100f1565b90509250925092565b610b9e8061015f6000396000f3fe608060405234801561001057600080fd5b50600436106100a95760003560e01c80639d699326116100715780639d6993261461011f578063a2b52bab14610132578063a78d80fc14610145578063c7f758a814610156578063cceb68f514610176578063f2fde38b1461018b57600080fd5b80632352a864146100ae57806360a11792146100de578063715018a6146100f15780638a4e965c146100fb5780638da5cb5b1461010e575b600080fd5b6003546100c1906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c16100ec36600461084f565b61019e565b6100f9610352565b005b6002546100c1906001600160a01b031681565b6000546001600160a01b03166100c1565b6001546100c1906001600160a01b031681565b6100c1610140366004610891565b610366565b6004546040519081526020016100d5565b6101696101643660046108cc565b610509565b6040516100d59190610958565b61017e61061f565b6040516100d59190610966565b6100f96101993660046109b4565b6106eb565b6001546000906101b6906001600160a01b0316610729565b600354604051639a382e7560e01b81529192506001600160a01b0380841692639a382e75926101f092309291169087903390600401610a53565b600060405180830381600087803b15801561020a57600080fd5b505af115801561021e573d6000803e3d6000fd5b50506004546000925061023391506001610ab0565b9050600460405180608001604052808381526020016000600181111561025b5761025b6108e5565b81526001600160a01b038516602080830191909152336040909201919091528254600181810185556000948552938290208351600390920201908155908201518184018054939492939192909160ff19169083818111156102be576102be6108e5565b0217905550604082810151600183018054610100600160a81b0319166101006001600160a01b0393841602179055606090930151600290920180546001600160a01b03191692841692909217909155519083169033907fa12e24bb0834f6e4675e73527f5274f0340361aaddca444046f807674a18768190610344906000908690610ad1565b60405180910390a350919050565b61035a61073c565b6103646000610769565b565b60025460009061037e906001600160a01b0316610729565b60035460405163039167f560e51b81529192506001600160a01b038084169263722cfea0926103b892309291169087903390600401610aec565b600060405180830381600087803b1580156103d257600080fd5b505af11580156103e6573d6000803e3d6000fd5b5050600454600092506103fb91506001610ab0565b905060046040518060800160405280838152602001600180811115610422576104226108e5565b81526001600160a01b038516602080830191909152336040909201919091528254600181810185556000948552938290208351600390920201908155908201518184018054939492939192909160ff1916908381811115610485576104856108e5565b021790555060408281015160018381018054610100600160a81b0319166101006001600160a01b0394851602179055606090940151600290930180546001600160a01b03191693821693909317909255519084169133917fa12e24bb0834f6e4675e73527f5274f0340361aaddca444046f807674a18768191610344918690610ad1565b60408051608081018252600080825260208201819052918101829052606081019190915260045482106105835760405162461bcd60e51b815260206004820152601760248201527f50726f706f73616c20646f6573206e6f7420657869737400000000000000000060448201526064015b60405180910390fd5b6004828154811061059657610596610b52565b9060005260206000209060030201604051806080016040529081600082015481526020016001820160009054906101000a900460ff1660018111156105dd576105dd6108e5565b60018111156105ee576105ee6108e5565b815260018201546001600160a01b036101009091048116602083015260029092015490911660409091015292915050565b60606004805480602002602001604051908101604052809291908181526020016000905b828210156106e25783829060005260206000209060030201604051806080016040529081600082015481526020016001820160009054906101000a900460ff166001811115610694576106946108e5565b60018111156106a5576106a56108e5565b81526001828101546001600160a01b0361010090910481166020808501919091526002909401541660409092019190915291835292019101610643565b50505050905090565b6106f361073c565b6001600160a01b03811661071d57604051631e4fbdf760e01b81526000600482015260240161057a565b61072681610769565b50565b60006107368260006107b9565b92915050565b6000546001600160a01b031633146103645760405163118cdaa760e01b815233600482015260240161057a565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6000814710156107e55760405163cf47918160e01b81524760048201526024810183905260440161057a565b763d602d80600a3d3981f3363d3d373d3d3d363d730000008360601b60e81c176000526e5af43d82803e903d91602b57fd5bf38360781b176020526037600983f090506001600160a01b0381166107365760405163b06ebf3d60e01b815260040160405180910390fd5b60006020828403121561086157600080fd5b813567ffffffffffffffff81111561087857600080fd5b82016040818503121561088a57600080fd5b9392505050565b6000602082840312156108a357600080fd5b813567ffffffffffffffff8111156108ba57600080fd5b82016060818503121561088a57600080fd5b6000602082840312156108de57600080fd5b5035919050565b634e487b7160e01b600052602160045260246000fd5b6002811061091957634e487b7160e01b600052602160045260246000fd5b9052565b80518252602081015161093360208401826108fb565b506040818101516001600160a01b039081169184019190915260609182015116910152565b60808101610736828461091d565b6020808252825182820181905260009190848201906040850190845b818110156109a85761099583855161091d565b9284019260809290920191600101610982565b50909695505050505050565b6000602082840312156109c657600080fd5b81356001600160a01b038116811461088a57600080fd5b6000808335601e198436030181126109f457600080fd5b830160208101925035905067ffffffffffffffff811115610a1457600080fd5b803603821315610a2357600080fd5b9250929050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6001600160a01b038581168252848116602083015260806040830152600090610a7c85806109dd565b60406080860152610a9160c086018284610a2a565b6020979097013560a08601525050929092166060909101525092915050565b8082018082111561073657634e487b7160e01b600052601160045260246000fd5b60408101610adf82856108fb565b8260208301529392505050565b6001600160a01b038581168252848116602083015260806040830152600090610b1585806109dd565b60606080860152610b2a60e086018284610a2a565b602088013560a087015260409097013560c08601525050929092166060909101525092915050565b634e487b7160e01b600052603260045260246000fdfea26469706673582212204233060512896d61652d44e370a329f5c222430dbaaa231a3e5bb8f22d1a1f2064736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100a95760003560e01c80639d699326116100715780639d6993261461011f578063a2b52bab14610132578063a78d80fc14610145578063c7f758a814610156578063cceb68f514610176578063f2fde38b1461018b57600080fd5b80632352a864146100ae57806360a11792146100de578063715018a6146100f15780638a4e965c146100fb5780638da5cb5b1461010e575b600080fd5b6003546100c1906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c16100ec36600461084f565b61019e565b6100f9610352565b005b6002546100c1906001600160a01b031681565b6000546001600160a01b03166100c1565b6001546100c1906001600160a01b031681565b6100c1610140366004610891565b610366565b6004546040519081526020016100d5565b6101696101643660046108cc565b610509565b6040516100d59190610958565b61017e61061f565b6040516100d59190610966565b6100f96101993660046109b4565b6106eb565b6001546000906101b6906001600160a01b0316610729565b600354604051639a382e7560e01b81529192506001600160a01b0380841692639a382e75926101f092309291169087903390600401610a53565b600060405180830381600087803b15801561020a57600080fd5b505af115801561021e573d6000803e3d6000fd5b50506004546000925061023391506001610ab0565b9050600460405180608001604052808381526020016000600181111561025b5761025b6108e5565b81526001600160a01b038516602080830191909152336040909201919091528254600181810185556000948552938290208351600390920201908155908201518184018054939492939192909160ff19169083818111156102be576102be6108e5565b0217905550604082810151600183018054610100600160a81b0319166101006001600160a01b0393841602179055606090930151600290920180546001600160a01b03191692841692909217909155519083169033907fa12e24bb0834f6e4675e73527f5274f0340361aaddca444046f807674a18768190610344906000908690610ad1565b60405180910390a350919050565b61035a61073c565b6103646000610769565b565b60025460009061037e906001600160a01b0316610729565b60035460405163039167f560e51b81529192506001600160a01b038084169263722cfea0926103b892309291169087903390600401610aec565b600060405180830381600087803b1580156103d257600080fd5b505af11580156103e6573d6000803e3d6000fd5b5050600454600092506103fb91506001610ab0565b905060046040518060800160405280838152602001600180811115610422576104226108e5565b81526001600160a01b038516602080830191909152336040909201919091528254600181810185556000948552938290208351600390920201908155908201518184018054939492939192909160ff1916908381811115610485576104856108e5565b021790555060408281015160018381018054610100600160a81b0319166101006001600160a01b0394851602179055606090940151600290930180546001600160a01b03191693821693909317909255519084169133917fa12e24bb0834f6e4675e73527f5274f0340361aaddca444046f807674a18768191610344918690610ad1565b60408051608081018252600080825260208201819052918101829052606081019190915260045482106105835760405162461bcd60e51b815260206004820152601760248201527f50726f706f73616c20646f6573206e6f7420657869737400000000000000000060448201526064015b60405180910390fd5b6004828154811061059657610596610b52565b9060005260206000209060030201604051806080016040529081600082015481526020016001820160009054906101000a900460ff1660018111156105dd576105dd6108e5565b60018111156105ee576105ee6108e5565b815260018201546001600160a01b036101009091048116602083015260029092015490911660409091015292915050565b60606004805480602002602001604051908101604052809291908181526020016000905b828210156106e25783829060005260206000209060030201604051806080016040529081600082015481526020016001820160009054906101000a900460ff166001811115610694576106946108e5565b60018111156106a5576106a56108e5565b81526001828101546001600160a01b0361010090910481166020808501919091526002909401541660409092019190915291835292019101610643565b50505050905090565b6106f361073c565b6001600160a01b03811661071d57604051631e4fbdf760e01b81526000600482015260240161057a565b61072681610769565b50565b60006107368260006107b9565b92915050565b6000546001600160a01b031633146103645760405163118cdaa760e01b815233600482015260240161057a565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6000814710156107e55760405163cf47918160e01b81524760048201526024810183905260440161057a565b763d602d80600a3d3981f3363d3d373d3d3d363d730000008360601b60e81c176000526e5af43d82803e903d91602b57fd5bf38360781b176020526037600983f090506001600160a01b0381166107365760405163b06ebf3d60e01b815260040160405180910390fd5b60006020828403121561086157600080fd5b813567ffffffffffffffff81111561087857600080fd5b82016040818503121561088a57600080fd5b9392505050565b6000602082840312156108a357600080fd5b813567ffffffffffffffff8111156108ba57600080fd5b82016060818503121561088a57600080fd5b6000602082840312156108de57600080fd5b5035919050565b634e487b7160e01b600052602160045260246000fd5b6002811061091957634e487b7160e01b600052602160045260246000fd5b9052565b80518252602081015161093360208401826108fb565b506040818101516001600160a01b039081169184019190915260609182015116910152565b60808101610736828461091d565b6020808252825182820181905260009190848201906040850190845b818110156109a85761099583855161091d565b9284019260809290920191600101610982565b50909695505050505050565b6000602082840312156109c657600080fd5b81356001600160a01b038116811461088a57600080fd5b6000808335601e198436030181126109f457600080fd5b830160208101925035905067ffffffffffffffff811115610a1457600080fd5b803603821315610a2357600080fd5b9250929050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6001600160a01b038581168252848116602083015260806040830152600090610a7c85806109dd565b60406080860152610a9160c086018284610a2a565b6020979097013560a08601525050929092166060909101525092915050565b8082018082111561073657634e487b7160e01b600052601160045260246000fd5b60408101610adf82856108fb565b8260208301529392505050565b6001600160a01b038581168252848116602083015260806040830152600090610b1585806109dd565b60606080860152610b2a60e086018284610a2a565b602088013560a087015260409097013560c08601525050929092166060909101525092915050565b634e487b7160e01b600052603260045260246000fdfea26469706673582212204233060512896d61652d44e370a329f5c222430dbaaa231a3e5bb8f22d1a1f2064736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "FailedDeployment()": [
+        {
+          "details": "The deployment failed."
+        }
+      ],
+      "InsufficientBalance(uint256,uint256)": [
+        {
+          "details": "The ETH balance of the account is not enough to perform the operation."
+        }
+      ],
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "createBusinessProposal((string,uint256,uint256))": {
+        "notice": "Creates a new BP proposal contract (ProposalType.BP)."
+      },
+      "createDAOProposal((string,uint256))": {
+        "notice": "Creates a new DAO proposal contract (ProposalType.DAO)."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 517,
+        "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 8595,
+        "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+        "label": "daoImplementation",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 8597,
+        "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+        "label": "bpImplementation",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 8599,
+        "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+        "label": "erc721Address",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_address"
+      },
+      {
+        "astId": 8603,
+        "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+        "label": "_proposals",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_array(t_struct(ProposalInfo)9360_storage)dyn_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_struct(ProposalInfo)9360_storage)dyn_storage": {
+        "base": "t_struct(ProposalInfo)9360_storage",
+        "encoding": "dynamic_array",
+        "label": "struct ProposalInfo[]",
+        "numberOfBytes": "32"
+      },
+      "t_enum(ProposalType)9350": {
+        "encoding": "inplace",
+        "label": "enum ProposalType",
+        "numberOfBytes": "1"
+      },
+      "t_struct(ProposalInfo)9360_storage": {
+        "encoding": "inplace",
+        "label": "struct ProposalInfo",
+        "members": [
+          {
+            "astId": 9352,
+            "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 9355,
+            "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+            "label": "proposalType",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_enum(ProposalType)9350"
+          },
+          {
+            "astId": 9357,
+            "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+            "label": "proposalAddress",
+            "offset": 1,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 9359,
+            "contract": "contracts/ProposalFactory.sol:ProposalFactory",
+            "label": "creator",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

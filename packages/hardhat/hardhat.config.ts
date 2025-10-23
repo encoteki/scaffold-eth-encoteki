@@ -14,7 +14,7 @@ import generateTsAbis from "./scripts/generateTsAbis";
 
 // If not set, it uses ours Alchemy's default API key.
 // You can get your own at https://dashboard.alchemyapi.io
-const providerApiKey = process.env.ALCHEMY_API_KEY || "oKxs-03sij-U_N0iOlrSsZFr29-IqbuF";
+const providerApiKey = process.env.ALCHEMY_API_KEY || "XfdusSNUiY5U0K7InJ1-seBOjcY-lBQi";
 // If not set, it uses the hardhat account 0 private key.
 // You can generate a random account with `yarn generate` or `yarn account:import` to import your existing PK
 const deployerPrivateKey =
@@ -108,6 +108,7 @@ const config: HardhatUserConfig = {
     baseSepolia: {
       url: "https://sepolia.base.org",
       accounts: [deployerPrivateKey],
+      chainId: 84532,
     },
     scrollSepolia: {
       url: "https://sepolia-rpc.scroll.io",
@@ -129,6 +130,32 @@ const config: HardhatUserConfig = {
   // Configuration for harhdat-verify plugin
   etherscan: {
     apiKey: etherscanApiKey,
+    customChains: [
+      {
+        network: "liskSepolia",
+        chainId: 4202,
+        urls: {
+          apiURL: "https://sepolia-blockscout.lisk.com/api",
+          browserURL: "https://sepolia-blockscout.lisk.com",
+        },
+      },
+      {
+        network: "baseSepolia",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api-sepolia.basescan.org/api",
+          browserURL: "https://sepolia.basescan.org",
+        },
+      },
+      // {
+      //   network: "baseSepolia",
+      //   chainId: 84532,
+      //   urls: {
+      //     apiURL: "https://sepolia.basescan.org/api",
+      //     browserURL: "https://sepolia.basescan.org",
+      //   },
+      // },
+    ],
   },
   // Configuration for etherscan-verify from hardhat-deploy plugin
   verify: {
