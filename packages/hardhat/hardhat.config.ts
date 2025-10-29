@@ -126,6 +126,19 @@ const config: HardhatUserConfig = {
       url: "https://forno.celo-sepolia.celo-testnet.org/",
       accounts: [deployerPrivateKey],
     },
+    liskSepolia: {
+      url: "https://rpc.sepolia-api.lisk.com",
+      accounts: [deployerPrivateKey],
+      chainId: 4202,
+    },
+    flow: {
+      url: "https://mainnet.evm.nodes.onflow.org",
+      accounts: [deployerPrivateKey],
+    },
+    flowTestnet: {
+      url: "https://testnet.evm.nodes.onflow.org",
+      accounts: [deployerPrivateKey],
+    },
   },
   // Configuration for harhdat-verify plugin
   etherscan: {
@@ -155,6 +168,22 @@ const config: HardhatUserConfig = {
       //     browserURL: "https://sepolia.basescan.org",
       //   },
       // },
+      {
+        network: "flow",
+        chainId: 747,
+        urls: {
+          apiURL: "https://evm.flowscan.io/api",
+          browserURL: "https://evm.flowscan.io/",
+        },
+      },
+      {
+        network: "flowTestnet",
+        chainId: 545,
+        urls: {
+          apiURL: "https://evm-testnet.flowscan.io/api",
+          browserURL: "https://evm-testnet.flowscan.io/",
+        },
+      },
     ],
   },
   // Configuration for etherscan-verify from hardhat-deploy plugin
