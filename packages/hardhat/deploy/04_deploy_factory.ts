@@ -6,21 +6,19 @@ const deployFactory: DeployFunction = async function (hre: HardhatRuntimeEnviron
   const { deploy, getOrNull } = hre.deployments;
 
   // read previously deployed impls from the registry
+  const tsbd = await getOrNull("TheSatwasBandDev");
   const daoImpl = await getOrNull("DAOImplementation");
   const bpImpl = await getOrNull("BusinessProposalImplementation");
 
+  if (!tsbd) throw new Error("TheSatwasBandDev not found. Run with --tags TheSatwasBandDev first.");
   if (!daoImpl) throw new Error("DAOImplementation not found. Run with --tags DAOImplementation first.");
   if (!bpImpl)
     throw new Error("BusinessProposalImplementation not found. Run with --tags BusinessProposalImplementation first.");
 
   // Constructor args
-  // const DAO_IMPL_ADDRESS = daoImpl.address;
-  // const BP_IMPL_ADDRESS = bpImpl.address;
-  // const ERC721_ADDRESS = "0x905181635f2FEB3c62f6eF216106eF06c01b449E";
-
-  const DAO_IMPL_ADDRESS = "0xB6b899b2343Dd703CD70d719bccf1c82E0979f0C";
-  const BP_IMPL_ADDRESS = "0xc25FA8c40Ef178a62502dB2C7153b24a64F6250b";
-  const ERC721_ADDRESS = "0x905181635f2FEB3c62f6eF216106eF06c01b449E";
+  const DAO_IMPL_ADDRESS = daoImpl.address;
+  const BP_IMPL_ADDRESS = bpImpl.address;
+  const ERC721_ADDRESS = tsbd.address;
 
   const result = await deploy("ProposalFactory", {
     from: deployer,
