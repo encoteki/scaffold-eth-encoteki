@@ -142,7 +142,14 @@ const config: HardhatUserConfig = {
   },
   // Configuration for harhdat-verify plugin
   etherscan: {
-    apiKey: etherscanApiKey,
+    apiKey: {
+      // Etherscan-supported networks:
+      baseSepolia: process.env.ETHERSCAN_API_KEY!,
+      // Non-Etherscan networks (dummy key is fine)
+      liskSepolia: process.env.ETHERSCAN_API_KEY || "YOUR_BLOCKSCOUT_API_KEY",
+      flow: "abc",
+      flowTestnet: "abc",
+    },
     customChains: [
       {
         network: "liskSepolia",
