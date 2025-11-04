@@ -1,0 +1,673 @@
+{
+  "address": "0xc61D7ce5064484838D2306979708A025170dCDBA",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "AlreadyVoted",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyArray",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInitialization",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "InvalidOption",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitializing",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "NotTokenOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyFactory",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Paused",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "VotingTokenNotSet",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddress",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "proposalName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "erc721Address",
+          "type": "address"
+        }
+      ],
+      "name": "InitializeProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "version",
+          "type": "uint64"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProposalVoted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "canVote",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "erc721Address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "factoryAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTally",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "hasVoted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "id",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factoryAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_erc721Address",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "proposalName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct CreateDAO",
+          "name": "_config",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address",
+          "name": "_initialOwner",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "optionTally",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "proposalName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalVotesCast",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "vote",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "voteDAO",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x32be8c97fd6cab8dae4768c627326dd05bc8b3b86022f52710db1ccb68a45c37",
+  "receipt": {
+    "to": null,
+    "from": "0xE3906ddE92E4E70C73724C070430e28Fdf520071",
+    "contractAddress": "0xc61D7ce5064484838D2306979708A025170dCDBA",
+    "transactionIndex": 1,
+    "gasUsed": "785233",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000200000000000000004000000000000000000000000000000000000000000000000000000000000000000008000000000000000",
+    "blockHash": "0x27ac44b73680477e0efecb943366f98b7f1aeb78e5233eca5b7d725b8b982001",
+    "transactionHash": "0x32be8c97fd6cab8dae4768c627326dd05bc8b3b86022f52710db1ccb68a45c37",
+    "logs": [
+      {
+        "transactionIndex": 1,
+        "blockNumber": 28220697,
+        "transactionHash": "0x32be8c97fd6cab8dae4768c627326dd05bc8b3b86022f52710db1ccb68a45c37",
+        "address": "0xc61D7ce5064484838D2306979708A025170dCDBA",
+        "topics": [
+          "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000ffffffffffffffff",
+        "logIndex": 0,
+        "blockHash": "0x27ac44b73680477e0efecb943366f98b7f1aeb78e5233eca5b7d725b8b982001"
+      }
+    ],
+    "blockNumber": 28220697,
+    "cumulativeGasUsed": "831341",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "3d3ce28210a2360bca15dc7ba23ab407",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"AlreadyVoted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"EmptyArray\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidInitialization\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"optionId\",\"type\":\"uint256\"}],\"name\":\"InvalidOption\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotInitializing\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"NotTokenOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyFactory\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Paused\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"VotingTokenNotSet\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAddress\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"erc721Address\",\"type\":\"address\"}],\"name\":\"InitializeProposal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"version\",\"type\":\"uint64\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"optionId\",\"type\":\"uint256\"}],\"name\":\"ProposalVoted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"canVote\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"erc721Address\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factoryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"optionId\",\"type\":\"uint256\"}],\"name\":\"getTally\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"hasVoted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"id\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_factoryAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_erc721Address\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"internalType\":\"struct CreateDAO\",\"name\":\"_config\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_initialOwner\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"optionTally\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proposalName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalVotesCast\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"vote\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"optionId\",\"type\":\"uint256\"}],\"name\":\"voteDAO\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"InvalidInitialization()\":[{\"details\":\"The contract is already initialized.\"}],\"NotInitializing()\":[{\"details\":\"The contract is not initializing.\"}],\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"events\":{\"Initialized(uint64)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"}},\"kind\":\"dev\",\"methods\":{\"initialize(address,address,(string,uint256),address)\":{\"params\":{\"_config\":\"DAO config (expects proposalName, id).\",\"_erc721Address\":\"ERC721 collection granting voting rights.\",\"_factoryAddress\":\"ProposalFactory address (must be msg.sender).\",\"_initialOwner\":\"Admin/owner for this clone.\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"voteDAO(uint256,uint256)\":{\"details\":\"Caller must own `tokenId` at call time. Each tokenId votes once.\"}},\"title\":\"DAOImplementation\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"hasVoted(uint256)\":{\"notice\":\"tokenId => has voted\"},\"optionTally(uint256)\":{\"notice\":\"optionId => votes\"},\"totalVotesCast()\":{\"notice\":\"Total votes cast (sum of all option tallies)\"},\"vote(uint256)\":{\"notice\":\"tokenId => optionId chosen\"},\"voteDAO(uint256,uint256)\":{\"notice\":\"Cast one vote using a specific tokenId.\"}},\"notice\":\"ERC721 token-gated voting (1 NFT = 1 vote per tokenId). - Optional option validation (owner seeds valid options, then locks them). - Tallies per option. - Bulk voting, pause/unpause, gas-friendly errors.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/DAOImplementation.sol\":\"DAOImplementation\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {ContextUpgradeable} from \\\"../utils/ContextUpgradeable.sol\\\";\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable\\n    struct OwnableStorage {\\n        address _owner;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Ownable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;\\n\\n    function _getOwnableStorage() private pure returns (OwnableStorage storage $) {\\n        assembly {\\n            $.slot := OwnableStorageLocation\\n        }\\n    }\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    function __Ownable_init(address initialOwner) internal onlyInitializing {\\n        __Ownable_init_unchained(initialOwner);\\n    }\\n\\n    function __Ownable_init_unchained(address initialOwner) internal onlyInitializing {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        return $._owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        address oldOwner = $._owner;\\n        $._owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xc163fcf9bb10138631a9ba5564df1fa25db9adff73bd9ee868a8ae1858fe093a\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.3.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Storage of the initializable contract.\\n     *\\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\\n     * when using with upgradeable contracts.\\n     *\\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\\n     */\\n    struct InitializableStorage {\\n        /**\\n         * @dev Indicates that the contract has been initialized.\\n         */\\n        uint64 _initialized;\\n        /**\\n         * @dev Indicates that the contract is in the process of being initialized.\\n         */\\n        bool _initializing;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Initializable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\\n\\n    /**\\n     * @dev The contract is already initialized.\\n     */\\n    error InvalidInitialization();\\n\\n    /**\\n     * @dev The contract is not initializing.\\n     */\\n    error NotInitializing();\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint64 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\\n     * production.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        // Cache values to avoid duplicated sloads\\n        bool isTopLevelCall = !$._initializing;\\n        uint64 initialized = $._initialized;\\n\\n        // Allowed calls:\\n        // - initialSetup: the contract is not in the initializing state and no previous version was\\n        //                 initialized\\n        // - construction: the contract is initialized at version 1 (no reinitialization) and the\\n        //                 current contract is just being deployed\\n        bool initialSetup = initialized == 0 && isTopLevelCall;\\n        bool construction = initialized == 1 && address(this).code.length == 0;\\n\\n        if (!initialSetup && !construction) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = 1;\\n        if (isTopLevelCall) {\\n            $._initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            $._initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint64 version) {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing || $._initialized >= version) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = version;\\n        $._initializing = true;\\n        _;\\n        $._initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        _checkInitializing();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\\n     */\\n    function _checkInitializing() internal view virtual {\\n        if (!_isInitializing()) {\\n            revert NotInitializing();\\n        }\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing) {\\n            revert InvalidInitialization();\\n        }\\n        if ($._initialized != type(uint64).max) {\\n            $._initialized = type(uint64).max;\\n            emit Initialized(type(uint64).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint64) {\\n        return _getInitializableStorage()._initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _getInitializableStorage()._initializing;\\n    }\\n\\n    /**\\n     * @dev Pointer to storage slot. Allows integrators to override it with a custom storage location.\\n     *\\n     * NOTE: Consider following the ERC-7201 formula to derive storage locations.\\n     */\\n    function _initializableStorageSlot() internal pure virtual returns (bytes32) {\\n        return INITIALIZABLE_STORAGE;\\n    }\\n\\n    /**\\n     * @dev Returns a pointer to the storage namespace.\\n     */\\n    // solhint-disable-next-line var-name-mixedcase\\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\\n        bytes32 slot = _initializableStorageSlot();\\n        assembly {\\n            $.slot := slot\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xdb4d24ee2c087c391d587cd17adfe5b3f9d93b3110b1388c2ab6c7c0ad1dcd05\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0xdbef5f0c787055227243a7318ef74c8a5a1108ca3a07f2b3a00ef67769e1e397\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (token/ERC721/IERC721.sol)\\n\\npragma solidity >=0.6.2;\\n\\nimport {IERC165} from \\\"../../utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @dev Required interface of an ERC-721 compliant contract.\\n */\\ninterface IERC721 is IERC165 {\\n    /**\\n     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.\\n     */\\n    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\\n     */\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    /**\\n     * @dev Returns the number of tokens in ``owner``'s account.\\n     */\\n    function balanceOf(address owner) external view returns (uint256 balance);\\n\\n    /**\\n     * @dev Returns the owner of the `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function ownerOf(uint256 tokenId) external view returns (address owner);\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon\\n     *   a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients\\n     * are aware of the ERC-721 protocol to prevent tokens from being forever locked.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must have been allowed to move this token by either {approve} or\\n     *   {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon\\n     *   a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Transfers `tokenId` token from `from` to `to`.\\n     *\\n     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC-721\\n     * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must\\n     * understand this adds an external call which potentially creates a reentrancy vulnerability.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Gives permission to `to` to transfer `tokenId` token to another account.\\n     * The approval is cleared when the token is transferred.\\n     *\\n     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.\\n     *\\n     * Requirements:\\n     *\\n     * - The caller must own the token or be an approved operator.\\n     * - `tokenId` must exist.\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Approve or remove `operator` as an operator for the caller.\\n     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.\\n     *\\n     * Requirements:\\n     *\\n     * - The `operator` cannot be the address zero.\\n     *\\n     * Emits an {ApprovalForAll} event.\\n     */\\n    function setApprovalForAll(address operator, bool approved) external;\\n\\n    /**\\n     * @dev Returns the account approved for `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function getApproved(uint256 tokenId) external view returns (address operator);\\n\\n    /**\\n     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.\\n     *\\n     * See {setApprovalForAll}\\n     */\\n    function isApprovedForAll(address owner, address operator) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xf78f05f3b8c9f75570e85300d7b4600d7f6f6a198449273f31d44c1641adb46f\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (utils/introspection/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[ERC].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c\",\"license\":\"MIT\"},\"contracts/DAOImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC721/IERC721.sol\\\";\\n\\nimport { CreateDAO } from \\\"./structs/ProposalStructs.sol\\\";\\n\\n/**\\n * @title DAOImplementation\\n * @notice ERC721 token-gated voting (1 NFT = 1 vote per tokenId).\\n * - Optional option validation (owner seeds valid options, then locks them).\\n * - Tallies per option.\\n * - Bulk voting, pause/unpause, gas-friendly errors.\\n */\\ncontract DAOImplementation is Initializable, OwnableUpgradeable {\\n\\t// --------------------------------------------------\\n\\t// Errors (gas efficient)\\n\\t// --------------------------------------------------\\n\\terror OnlyFactory();\\n\\terror ZeroAddress();\\n\\terror VotingTokenNotSet();\\n\\terror AlreadyVoted(uint256 tokenId);\\n\\terror NotTokenOwner(uint256 tokenId);\\n\\terror InvalidOption(uint256 optionId);\\n\\terror EmptyArray();\\n\\terror Paused();\\n\\n\\t// --------------------------------------------------\\n\\t// State\\n\\t// --------------------------------------------------\\n\\taddress public factoryAddress;\\n\\taddress public erc721Address;\\n\\n\\tstring public proposalName;\\n\\tuint256 public id;\\n\\n\\t/// tokenId => has voted\\n\\tmapping(uint256 => bool) public hasVoted;\\n\\n\\t/// tokenId => optionId chosen\\n\\tmapping(uint256 => uint256) public vote;\\n\\n\\t/// optionId => votes\\n\\tmapping(uint256 => uint256) public optionTally;\\n\\n\\t/// Total votes cast (sum of all option tallies)\\n\\tuint256 public totalVotesCast;\\n\\n\\t// --------------------------------------------------\\n\\t// Events\\n\\t// --------------------------------------------------\\n\\tevent InitializeProposal(\\n\\t\\taddress indexed proposalAddress,\\n\\t\\taddress owner,\\n\\t\\tstring proposalName,\\n\\t\\taddress erc721Address\\n\\t);\\n\\n\\tevent ProposalVoted(\\n\\t\\tuint256 indexed tokenId,\\n\\t\\taddress indexed voter,\\n\\t\\tuint256 indexed optionId\\n\\t);\\n\\n\\t// --------------------------------------------------\\n\\t// Constructor (locks logic contract)\\n\\t// --------------------------------------------------\\n\\tconstructor() {\\n\\t\\t_disableInitializers();\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Initializer\\n\\t// --------------------------------------------------\\n\\t/**\\n\\t * @param _factoryAddress ProposalFactory address (must be msg.sender).\\n\\t * @param _erc721Address  ERC721 collection granting voting rights.\\n\\t * @param _config         DAO config (expects proposalName, id).\\n\\t * @param _initialOwner   Admin/owner for this clone.\\n\\t */\\n\\tfunction initialize(\\n\\t\\taddress _factoryAddress,\\n\\t\\taddress _erc721Address,\\n\\t\\tCreateDAO calldata _config,\\n\\t\\taddress _initialOwner\\n\\t) public initializer {\\n\\t\\tif (msg.sender != _factoryAddress) revert OnlyFactory();\\n\\t\\tif (_erc721Address == address(0)) revert ZeroAddress();\\n\\n\\t\\t__Ownable_init(_initialOwner);\\n\\n\\t\\tfactoryAddress = _factoryAddress;\\n\\t\\terc721Address = _erc721Address;\\n\\n\\t\\tproposalName = _config.proposalName;\\n\\t\\tid = _config.id;\\n\\n\\t\\temit InitializeProposal(\\n\\t\\t\\taddress(this),\\n\\t\\t\\towner(),\\n\\t\\t\\tproposalName,\\n\\t\\t\\terc721Address\\n\\t\\t);\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Voting\\n\\t// --------------------------------------------------\\n\\n\\t/**\\n\\t * @notice Cast one vote using a specific tokenId.\\n\\t * @dev    Caller must own `tokenId` at call time. Each tokenId votes once.\\n\\t */\\n\\tfunction voteDAO(uint256 tokenId, uint256 optionId) external {\\n\\t\\tif (erc721Address == address(0)) revert VotingTokenNotSet();\\n\\t\\tif (hasVoted[tokenId]) revert AlreadyVoted(tokenId);\\n\\t\\tif (IERC721(erc721Address).ownerOf(tokenId) != msg.sender)\\n\\t\\t\\trevert NotTokenOwner(tokenId);\\n\\n\\t\\thasVoted[tokenId] = true;\\n\\t\\tvote[tokenId] = optionId;\\n\\t\\tunchecked {\\n\\t\\t\\toptionTally[optionId] += 1;\\n\\t\\t\\ttotalVotesCast += 1;\\n\\t\\t}\\n\\n\\t\\temit ProposalVoted(tokenId, msg.sender, optionId);\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Views\\n\\t// --------------------------------------------------\\n\\tfunction getTally(uint256 optionId) external view returns (uint256) {\\n\\t\\treturn optionTally[optionId];\\n\\t}\\n\\n\\tfunction canVote(\\n\\t\\taddress voter,\\n\\t\\tuint256 tokenId\\n\\t) external view returns (bool) {\\n\\t\\tif (erc721Address == address(0) || hasVoted[tokenId]) return false;\\n\\t\\treturn IERC721(erc721Address).ownerOf(tokenId) == voter;\\n\\t}\\n\\n\\t// --------------------------------------------------\\n\\t// Upgradeable storage gap\\n\\t// --------------------------------------------------\\n\\tuint256[40] private __gap;\\n}\\n\",\"keccak256\":\"0x34ecc75b67baffde03eec9d3cca9393c12ce980c38440e646a1d75dc6fd81cab\",\"license\":\"MIT\"},\"contracts/structs/ProposalStructs.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nstruct CreateDAO {\\n    string proposalName;\\n    uint256 id;\\n}\\n\\nstruct CreateProposal {\\n    string proposalName;\\n    uint256 id;\\n    uint256 proposedFund;\\n}\\n\\nenum ProposalType {\\n    DAO,\\n    Business\\n}\\n\\nstruct ProposalInfo {\\n    uint256 id;\\n    ProposalType proposalType;\\n    address proposalAddress;\\n    address creator;\\n}\\n\",\"keccak256\":\"0x19116bb2f34910197dfd5b935ad20ce93947480c706b9c1e9822652dd12cbe3f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061001961001e565b6100d0565b7ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00805468010000000000000000900460ff161561006e5760405163f92ee8a960e01b815260040160405180910390fd5b80546001600160401b03908116146100cd5780546001600160401b0319166001600160401b0390811782556040519081527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b50565b610cc2806100df6000396000f3fe608060405234801561001057600080fd5b50600436106100f55760003560e01c80638da5cb5b11610097578063b40c87c811610066578063b40c87c8146101fa578063eb0772c91461020d578063ecca031f1461022d578063f2fde38b1461025057600080fd5b80638da5cb5b146101c3578063966dae0e146101cb5780639a382e75146101de578063af640d0f146101f157600080fd5b80632352a864116100d35780632352a864146101705780636a2275db1461019b578063715018a6146101b05780637de418d5146101ba57600080fd5b80630121b93f146100fa578063015dcd401461012d57806319eb8d481461014d575b600080fd5b61011a6101083660046108a8565b60056020526000908152604090205481565b6040519081526020015b60405180910390f35b61011a61013b3660046108a8565b60066020526000908152604090205481565b61016061015b3660046108d6565b610263565b6040519015158152602001610124565b600154610183906001600160a01b031681565b6040516001600160a01b039091168152602001610124565b6101a361031b565b6040516101249190610902565b6101b86103a9565b005b61011a60075481565b6101836103bd565b600054610183906001600160a01b031681565b6101b86101ec366004610950565b6103eb565b61011a60035481565b6101b86102083660046109ca565b6105dc565b61011a61021b3660046108a8565b60009081526006602052604090205490565b61016061023b3660046108a8565b60046020526000908152604090205460ff1681565b6101b861025e3660046109ec565b610746565b6001546000906001600160a01b0316158061028c575060008281526004602052604090205460ff165b1561029957506000610315565b6001546040516331a9108f60e11b8152600481018490526001600160a01b03858116921690636352211e90602401602060405180830381865afa1580156102e4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103089190610a10565b6001600160a01b03161490505b92915050565b6002805461032890610a2d565b80601f016020809104026020016040519081016040528092919081815260200182805461035490610a2d565b80156103a15780601f10610376576101008083540402835291602001916103a1565b820191906000526020600020905b81548152906001019060200180831161038457829003601f168201915b505050505081565b6103b1610784565b6103bb60006107b6565b565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300546001600160a01b031690565b60006103f5610827565b805490915060ff600160401b820416159067ffffffffffffffff1660008115801561041d5750825b905060008267ffffffffffffffff16600114801561043a5750303b155b905081158015610448575080155b156104665760405163f92ee8a960e01b815260040160405180910390fd5b845467ffffffffffffffff19166001178555831561049057845460ff60401b1916600160401b1785555b336001600160a01b038a16146104b957604051630636a15760e11b815260040160405180910390fd5b6001600160a01b0388166104e05760405163d92e233d60e01b815260040160405180910390fd5b6104e986610850565b600080546001600160a01b03808c166001600160a01b03199283161790925560018054928b16929091169190911790556105238780610a67565b600291610531919083610b1a565b506020870135600355307f8a8db3c227be8fb4fa723c4f378e4488952e2943f2212215dbc97362589184f56105646103bd565b60015460405161058392916002916001600160a01b0390911690610bdb565b60405180910390a283156105d157845460ff60401b19168555604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b505050505050505050565b6001546001600160a01b031661060557604051630b38582360e01b815260040160405180910390fd5b60008281526004602052604090205460ff161561063d5760405163c0afe58d60e01b8152600481018390526024015b60405180910390fd5b6001546040516331a9108f60e11b81526004810184905233916001600160a01b031690636352211e90602401602060405180830381865afa158015610686573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106aa9190610a10565b6001600160a01b0316146106d457604051630e35d34560e11b815260048101839052602401610634565b6000828152600460209081526040808320805460ff1916600190811790915560058352818420859055848452600690925280832080548301905560078054909201909155518291339185917f12602b81b4b3a6bc77534c571e8af3d316246bc5e5bea24efdf512ff6715da1591a45050565b61074e610784565b6001600160a01b03811661077857604051631e4fbdf760e01b815260006004820152602401610634565b610781816107b6565b50565b3361078d6103bd565b6001600160a01b0316146103bb5760405163118cdaa760e01b8152336004820152602401610634565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c19930080546001600160a01b031981166001600160a01b03848116918217845560405192169182907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3505050565b6000807ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00610315565b610858610861565b61078181610886565b61086961088e565b6103bb57604051631afcd79f60e31b815260040160405180910390fd5b61074e610861565b6000610898610827565b54600160401b900460ff16919050565b6000602082840312156108ba57600080fd5b5035919050565b6001600160a01b038116811461078157600080fd5b600080604083850312156108e957600080fd5b82356108f4816108c1565b946020939093013593505050565b600060208083528351808285015260005b8181101561092f57858101830151858201604001528201610913565b506000604082860101526040601f19601f8301168501019250505092915050565b6000806000806080858703121561096657600080fd5b8435610971816108c1565b93506020850135610981816108c1565b9250604085013567ffffffffffffffff81111561099d57600080fd5b8501604081880312156109af57600080fd5b915060608501356109bf816108c1565b939692955090935050565b600080604083850312156109dd57600080fd5b50508035926020909101359150565b6000602082840312156109fe57600080fd5b8135610a09816108c1565b9392505050565b600060208284031215610a2257600080fd5b8151610a09816108c1565b600181811c90821680610a4157607f821691505b602082108103610a6157634e487b7160e01b600052602260045260246000fd5b50919050565b6000808335601e19843603018112610a7e57600080fd5b83018035915067ffffffffffffffff821115610a9957600080fd5b602001915036819003821315610aae57600080fd5b9250929050565b634e487b7160e01b600052604160045260246000fd5b601f821115610b1557600081815260208120601f850160051c81016020861015610af25750805b601f850160051c820191505b81811015610b1157828155600101610afe565b5050505b505050565b67ffffffffffffffff831115610b3257610b32610ab5565b610b4683610b408354610a2d565b83610acb565b6000601f841160018114610b7a5760008515610b625750838201355b600019600387901b1c1916600186901b178355610bd4565b600083815260209020601f19861690835b82811015610bab5786850135825560209485019460019092019101610b8b565b5086821015610bc85760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b60018060a01b03841681526000602060608184015260008554610bfd81610a2d565b8060608701526080600180841660008114610c1f5760018114610c3957610c67565b60ff1985168984015283151560051b890183019550610c67565b8a6000528660002060005b85811015610c5f5781548b8201860152908301908801610c44565b8a0184019650505b505050506001600160a01b0386166040860152509150610c849050565b94935050505056fea264697066735822122036f04dd218d44383a4803741fbfad9aa4d1c0797ee02f0c264773c9c77c6c33e64736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100f55760003560e01c80638da5cb5b11610097578063b40c87c811610066578063b40c87c8146101fa578063eb0772c91461020d578063ecca031f1461022d578063f2fde38b1461025057600080fd5b80638da5cb5b146101c3578063966dae0e146101cb5780639a382e75146101de578063af640d0f146101f157600080fd5b80632352a864116100d35780632352a864146101705780636a2275db1461019b578063715018a6146101b05780637de418d5146101ba57600080fd5b80630121b93f146100fa578063015dcd401461012d57806319eb8d481461014d575b600080fd5b61011a6101083660046108a8565b60056020526000908152604090205481565b6040519081526020015b60405180910390f35b61011a61013b3660046108a8565b60066020526000908152604090205481565b61016061015b3660046108d6565b610263565b6040519015158152602001610124565b600154610183906001600160a01b031681565b6040516001600160a01b039091168152602001610124565b6101a361031b565b6040516101249190610902565b6101b86103a9565b005b61011a60075481565b6101836103bd565b600054610183906001600160a01b031681565b6101b86101ec366004610950565b6103eb565b61011a60035481565b6101b86102083660046109ca565b6105dc565b61011a61021b3660046108a8565b60009081526006602052604090205490565b61016061023b3660046108a8565b60046020526000908152604090205460ff1681565b6101b861025e3660046109ec565b610746565b6001546000906001600160a01b0316158061028c575060008281526004602052604090205460ff165b1561029957506000610315565b6001546040516331a9108f60e11b8152600481018490526001600160a01b03858116921690636352211e90602401602060405180830381865afa1580156102e4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103089190610a10565b6001600160a01b03161490505b92915050565b6002805461032890610a2d565b80601f016020809104026020016040519081016040528092919081815260200182805461035490610a2d565b80156103a15780601f10610376576101008083540402835291602001916103a1565b820191906000526020600020905b81548152906001019060200180831161038457829003601f168201915b505050505081565b6103b1610784565b6103bb60006107b6565b565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300546001600160a01b031690565b60006103f5610827565b805490915060ff600160401b820416159067ffffffffffffffff1660008115801561041d5750825b905060008267ffffffffffffffff16600114801561043a5750303b155b905081158015610448575080155b156104665760405163f92ee8a960e01b815260040160405180910390fd5b845467ffffffffffffffff19166001178555831561049057845460ff60401b1916600160401b1785555b336001600160a01b038a16146104b957604051630636a15760e11b815260040160405180910390fd5b6001600160a01b0388166104e05760405163d92e233d60e01b815260040160405180910390fd5b6104e986610850565b600080546001600160a01b03808c166001600160a01b03199283161790925560018054928b16929091169190911790556105238780610a67565b600291610531919083610b1a565b506020870135600355307f8a8db3c227be8fb4fa723c4f378e4488952e2943f2212215dbc97362589184f56105646103bd565b60015460405161058392916002916001600160a01b0390911690610bdb565b60405180910390a283156105d157845460ff60401b19168555604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b505050505050505050565b6001546001600160a01b031661060557604051630b38582360e01b815260040160405180910390fd5b60008281526004602052604090205460ff161561063d5760405163c0afe58d60e01b8152600481018390526024015b60405180910390fd5b6001546040516331a9108f60e11b81526004810184905233916001600160a01b031690636352211e90602401602060405180830381865afa158015610686573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106aa9190610a10565b6001600160a01b0316146106d457604051630e35d34560e11b815260048101839052602401610634565b6000828152600460209081526040808320805460ff1916600190811790915560058352818420859055848452600690925280832080548301905560078054909201909155518291339185917f12602b81b4b3a6bc77534c571e8af3d316246bc5e5bea24efdf512ff6715da1591a45050565b61074e610784565b6001600160a01b03811661077857604051631e4fbdf760e01b815260006004820152602401610634565b610781816107b6565b50565b3361078d6103bd565b6001600160a01b0316146103bb5760405163118cdaa760e01b8152336004820152602401610634565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c19930080546001600160a01b031981166001600160a01b03848116918217845560405192169182907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3505050565b6000807ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00610315565b610858610861565b61078181610886565b61086961088e565b6103bb57604051631afcd79f60e31b815260040160405180910390fd5b61074e610861565b6000610898610827565b54600160401b900460ff16919050565b6000602082840312156108ba57600080fd5b5035919050565b6001600160a01b038116811461078157600080fd5b600080604083850312156108e957600080fd5b82356108f4816108c1565b946020939093013593505050565b600060208083528351808285015260005b8181101561092f57858101830151858201604001528201610913565b506000604082860101526040601f19601f8301168501019250505092915050565b6000806000806080858703121561096657600080fd5b8435610971816108c1565b93506020850135610981816108c1565b9250604085013567ffffffffffffffff81111561099d57600080fd5b8501604081880312156109af57600080fd5b915060608501356109bf816108c1565b939692955090935050565b600080604083850312156109dd57600080fd5b50508035926020909101359150565b6000602082840312156109fe57600080fd5b8135610a09816108c1565b9392505050565b600060208284031215610a2257600080fd5b8151610a09816108c1565b600181811c90821680610a4157607f821691505b602082108103610a6157634e487b7160e01b600052602260045260246000fd5b50919050565b6000808335601e19843603018112610a7e57600080fd5b83018035915067ffffffffffffffff821115610a9957600080fd5b602001915036819003821315610aae57600080fd5b9250929050565b634e487b7160e01b600052604160045260246000fd5b601f821115610b1557600081815260208120601f850160051c81016020861015610af25750805b601f850160051c820191505b81811015610b1157828155600101610afe565b5050505b505050565b67ffffffffffffffff831115610b3257610b32610ab5565b610b4683610b408354610a2d565b83610acb565b6000601f841160018114610b7a5760008515610b625750838201355b600019600387901b1c1916600186901b178355610bd4565b600083815260209020601f19861690835b82811015610bab5786850135825560209485019460019092019101610b8b565b5086821015610bc85760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b60018060a01b03841681526000602060608184015260008554610bfd81610a2d565b8060608701526080600180841660008114610c1f5760018114610c3957610c67565b60ff1985168984015283151560051b890183019550610c67565b8a6000528660002060005b85811015610c5f5781548b8201860152908301908801610c44565b8a0184019650505b505050506001600160a01b0386166040860152509150610c849050565b94935050505056fea264697066735822122036f04dd218d44383a4803741fbfad9aa4d1c0797ee02f0c264773c9c77c6c33e64736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "InvalidInitialization()": [
+        {
+          "details": "The contract is already initialized."
+        }
+      ],
+      "NotInitializing()": [
+        {
+          "details": "The contract is not initializing."
+        }
+      ],
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "events": {
+      "Initialized(uint64)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "initialize(address,address,(string,uint256),address)": {
+        "params": {
+          "_config": "DAO config (expects proposalName, id).",
+          "_erc721Address": "ERC721 collection granting voting rights.",
+          "_factoryAddress": "ProposalFactory address (must be msg.sender).",
+          "_initialOwner": "Admin/owner for this clone."
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "voteDAO(uint256,uint256)": {
+        "details": "Caller must own `tokenId` at call time. Each tokenId votes once."
+      }
+    },
+    "title": "DAOImplementation",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "hasVoted(uint256)": {
+        "notice": "tokenId => has voted"
+      },
+      "optionTally(uint256)": {
+        "notice": "optionId => votes"
+      },
+      "totalVotesCast()": {
+        "notice": "Total votes cast (sum of all option tallies)"
+      },
+      "vote(uint256)": {
+        "notice": "tokenId => optionId chosen"
+      },
+      "voteDAO(uint256,uint256)": {
+        "notice": "Cast one vote using a specific tokenId."
+      }
+    },
+    "notice": "ERC721 token-gated voting (1 NFT = 1 vote per tokenId). - Optional option validation (owner seeds valid options, then locks them). - Tallies per option. - Bulk voting, pause/unpause, gas-friendly errors.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8330,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "factoryAddress",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 8332,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "erc721Address",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 8334,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "proposalName",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 8336,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "id",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8341,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "hasVoted",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_uint256,t_bool)"
+      },
+      {
+        "astId": 8346,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "vote",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_uint256,t_uint256)"
+      },
+      {
+        "astId": 8351,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "optionTally",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_uint256,t_uint256)"
+      },
+      {
+        "astId": 8354,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "totalVotesCast",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8565,
+        "contract": "contracts/DAOImplementation.sol:DAOImplementation",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_array(t_uint256)40_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)40_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[40]",
+        "numberOfBytes": "1280"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

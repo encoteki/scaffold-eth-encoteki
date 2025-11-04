@@ -1,0 +1,623 @@
+{
+  "address": "0x8C155EA94e4400A932b020E82782FE7Dd9ef4aee",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "CapExceeded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInitialization",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitializing",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyFactory",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "FundsAllocated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "proposalName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "proposedFund",
+          "type": "uint256"
+        }
+      ],
+      "name": "InitializeProposal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "version",
+          "type": "uint64"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proposalAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProposalVoted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "allocatedFund",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "availableToAllocate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "canAllocate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "erc721Address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "factoryAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "fund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "id",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factoryAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_erc721Address",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "proposalName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "proposedFund",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct CreateProposal",
+          "name": "_config",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address",
+          "name": "_initialOwner",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isFull",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "proposalName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "proposedFund",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "remainingFund",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalAllocated",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x4ef6a25c7938761f81a26aeab794b310126cfec2f3bd8fc41e43e078473dc4e3",
+  "receipt": {
+    "to": null,
+    "from": "0xE3906ddE92E4E70C73724C070430e28Fdf520071",
+    "contractAddress": "0x8C155EA94e4400A932b020E82782FE7Dd9ef4aee",
+    "transactionIndex": 0,
+    "gasUsed": "710081",
+    "logsBloom": "0x00000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000080000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000800000000000000000000000000000000000000000000000",
+    "blockHash": "0x9badd6f92fae57f6e0c96d3ce6a3a98366278324908521c59d9990324765721b",
+    "transactionHash": "0x4ef6a25c7938761f81a26aeab794b310126cfec2f3bd8fc41e43e078473dc4e3",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 76285083,
+        "transactionHash": "0x4ef6a25c7938761f81a26aeab794b310126cfec2f3bd8fc41e43e078473dc4e3",
+        "address": "0x8C155EA94e4400A932b020E82782FE7Dd9ef4aee",
+        "topics": [
+          "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000ffffffffffffffff",
+        "logIndex": 0,
+        "blockHash": "0x9badd6f92fae57f6e0c96d3ce6a3a98366278324908521c59d9990324765721b"
+      }
+    ],
+    "blockNumber": 76285083,
+    "cumulativeGasUsed": "710081",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "3d3ce28210a2360bca15dc7ba23ab407",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"CapExceeded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidInitialization\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotInitializing\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyFactory\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"FundsAllocated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"proposedFund\",\"type\":\"uint256\"}],\"name\":\"InitializeProposal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"version\",\"type\":\"uint64\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"voter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proposalAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ProposalVoted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allocatedFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"availableToAllocate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"canAllocate\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"erc721Address\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factoryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"fund\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"id\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_factoryAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_erc721Address\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"proposalName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"proposedFund\",\"type\":\"uint256\"}],\"internalType\":\"struct CreateProposal\",\"name\":\"_config\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"_initialOwner\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isFull\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proposalName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proposedFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"remainingFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalAllocated\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"InvalidInitialization()\":[{\"details\":\"The contract is already initialized.\"}],\"NotInitializing()\":[{\"details\":\"The contract is not initializing.\"}],\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"events\":{\"Initialized(uint64)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"}},\"kind\":\"dev\",\"methods\":{\"availableToAllocate(address)\":{\"details\":\"Kept in case you later add per-user limits/logic.\"},\"constructor\":{\"details\":\"Lock the logic/implementation contract.\"},\"fund(uint256)\":{\"details\":\"Enforces that totalAllocated never exceeds proposedFund.\"},\"initialize(address,address,(string,uint256,uint256),address)\":{\"params\":{\"_config\":\"Proposal config (expects proposalName, id, proposedFund).\",\"_erc721Address\":\"Optional reference (kept for symmetry/extensibility).\",\"_factoryAddress\":\"The address of ProposalFactory.\",\"_initialOwner\":\"The EOA that will own/admin this clone.\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"BusinessProposalImplementation\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"allocatedFund(address)\":{\"notice\":\"Mapping [participantAddress] => allocated amount\"},\"availableToAllocate(address)\":{\"notice\":\"Headroom for a specific user (currently same as global remaining).\"},\"canAllocate(uint256)\":{\"notice\":\"Whether a given amount could be allocated right now.\"},\"fund(uint256)\":{\"notice\":\"Allocate funds towards this proposal (tracked in contract state).\"},\"initialize(address,address,(string,uint256,uint256),address)\":{\"notice\":\"Initializes the contract with the given parameters.\"},\"isFull()\":{\"notice\":\"Whether the cap has been fully reached.\"},\"remainingFund()\":{\"notice\":\"Remaining capacity before reaching the cap.\"}},\"notice\":\"Implementation for Business Proposal with a hard fundraising cap.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/BusinessProposalImplementation.sol\":\"BusinessProposalImplementation\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {ContextUpgradeable} from \\\"../utils/ContextUpgradeable.sol\\\";\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable\\n    struct OwnableStorage {\\n        address _owner;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Ownable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;\\n\\n    function _getOwnableStorage() private pure returns (OwnableStorage storage $) {\\n        assembly {\\n            $.slot := OwnableStorageLocation\\n        }\\n    }\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    function __Ownable_init(address initialOwner) internal onlyInitializing {\\n        __Ownable_init_unchained(initialOwner);\\n    }\\n\\n    function __Ownable_init_unchained(address initialOwner) internal onlyInitializing {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        return $._owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        OwnableStorage storage $ = _getOwnableStorage();\\n        address oldOwner = $._owner;\\n        $._owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xc163fcf9bb10138631a9ba5564df1fa25db9adff73bd9ee868a8ae1858fe093a\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.3.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Storage of the initializable contract.\\n     *\\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\\n     * when using with upgradeable contracts.\\n     *\\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\\n     */\\n    struct InitializableStorage {\\n        /**\\n         * @dev Indicates that the contract has been initialized.\\n         */\\n        uint64 _initialized;\\n        /**\\n         * @dev Indicates that the contract is in the process of being initialized.\\n         */\\n        bool _initializing;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Initializable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\\n\\n    /**\\n     * @dev The contract is already initialized.\\n     */\\n    error InvalidInitialization();\\n\\n    /**\\n     * @dev The contract is not initializing.\\n     */\\n    error NotInitializing();\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint64 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\\n     * production.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        // Cache values to avoid duplicated sloads\\n        bool isTopLevelCall = !$._initializing;\\n        uint64 initialized = $._initialized;\\n\\n        // Allowed calls:\\n        // - initialSetup: the contract is not in the initializing state and no previous version was\\n        //                 initialized\\n        // - construction: the contract is initialized at version 1 (no reinitialization) and the\\n        //                 current contract is just being deployed\\n        bool initialSetup = initialized == 0 && isTopLevelCall;\\n        bool construction = initialized == 1 && address(this).code.length == 0;\\n\\n        if (!initialSetup && !construction) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = 1;\\n        if (isTopLevelCall) {\\n            $._initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            $._initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint64 version) {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing || $._initialized >= version) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = version;\\n        $._initializing = true;\\n        _;\\n        $._initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        _checkInitializing();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\\n     */\\n    function _checkInitializing() internal view virtual {\\n        if (!_isInitializing()) {\\n            revert NotInitializing();\\n        }\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing) {\\n            revert InvalidInitialization();\\n        }\\n        if ($._initialized != type(uint64).max) {\\n            $._initialized = type(uint64).max;\\n            emit Initialized(type(uint64).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint64) {\\n        return _getInitializableStorage()._initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _getInitializableStorage()._initializing;\\n    }\\n\\n    /**\\n     * @dev Pointer to storage slot. Allows integrators to override it with a custom storage location.\\n     *\\n     * NOTE: Consider following the ERC-7201 formula to derive storage locations.\\n     */\\n    function _initializableStorageSlot() internal pure virtual returns (bytes32) {\\n        return INITIALIZABLE_STORAGE;\\n    }\\n\\n    /**\\n     * @dev Returns a pointer to the storage namespace.\\n     */\\n    // solhint-disable-next-line var-name-mixedcase\\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\\n        bytes32 slot = _initializableStorageSlot();\\n        assembly {\\n            $.slot := slot\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xdb4d24ee2c087c391d587cd17adfe5b3f9d93b3110b1388c2ab6c7c0ad1dcd05\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\nimport {Initializable} from \\\"../proxy/utils/Initializable.sol\\\";\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract ContextUpgradeable is Initializable {\\n    function __Context_init() internal onlyInitializing {\\n    }\\n\\n    function __Context_init_unchained() internal onlyInitializing {\\n    }\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0xdbef5f0c787055227243a7318ef74c8a5a1108ca3a07f2b3a00ef67769e1e397\",\"license\":\"MIT\"},\"contracts/BusinessProposalImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\nimport \\\"@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol\\\";\\n\\nimport { CreateProposal } from \\\"./structs/ProposalStructs.sol\\\";\\n\\n/**\\n * @title BusinessProposalImplementation\\n * @notice Implementation for Business Proposal with a hard fundraising cap.\\n */\\ncontract BusinessProposalImplementation is Initializable, OwnableUpgradeable {\\n    // --------------------------------------------------\\n    // Errors (gas-efficient reverts)\\n    // --------------------------------------------------\\n    error OnlyFactory();\\n    error InvalidAmount();\\n    error CapExceeded();\\n\\n    // --------------------------------------------------\\n    // State Variables\\n    // --------------------------------------------------\\n    address public factoryAddress;\\n    address public erc721Address;\\n\\n    string public proposalName;\\n    uint256 public id;\\n    uint256 public proposedFund; // fundraising target (cap)\\n    uint256 public totalAllocated; // sum of all allocations\\n\\n    /// @notice Mapping [participantAddress] => allocated amount\\n    mapping(address => uint256) public allocatedFund;\\n\\n    // --------------------------------------------------\\n    // Events\\n    // --------------------------------------------------\\n    event InitializeProposal(address indexed proposalAddress, address owner, string proposalName, uint256 proposedFund);\\n\\n    event ProposalVoted(\\n        // kept your naming; here it represents \\\"allocation\\\"\\n        address indexed voter,\\n        address indexed proposalAddress,\\n        uint256 amount\\n    );\\n\\n    event FundsAllocated(address indexed voter, uint256 amount);\\n\\n    // --------------------------------------------------\\n    // Constructor\\n    // --------------------------------------------------\\n    /// @dev Lock the logic/implementation contract.\\n    constructor() {\\n        _disableInitializers();\\n    }\\n\\n    // --------------------------------------------------\\n    // Initializer\\n    // --------------------------------------------------\\n    /**\\n     * @notice Initializes the contract with the given parameters.\\n     * @param _factoryAddress The address of ProposalFactory.\\n     * @param _erc721Address Optional reference (kept for symmetry/extensibility).\\n     * @param _config Proposal config (expects proposalName, id, proposedFund).\\n     * @param _initialOwner The EOA that will own/admin this clone.\\n     */\\n    function initialize(\\n        address _factoryAddress,\\n        address _erc721Address,\\n        CreateProposal calldata _config,\\n        address _initialOwner\\n    ) public initializer {\\n        if (msg.sender != _factoryAddress) revert OnlyFactory();\\n\\n        __Ownable_init(_initialOwner);\\n\\n        factoryAddress = _factoryAddress;\\n        erc721Address = _erc721Address;\\n\\n        proposalName = _config.proposalName;\\n        id = _config.id;\\n        proposedFund = _config.proposedFund;\\n\\n        emit InitializeProposal(address(this), owner(), proposalName, proposedFund);\\n    }\\n\\n    // --------------------------------------------------\\n    // WRITE: Allocate (a.k.a. \\\"vote with funds\\\")\\n    // --------------------------------------------------\\n    /**\\n     * @notice Allocate funds towards this proposal (tracked in contract state).\\n     * @dev Enforces that totalAllocated never exceeds proposedFund.\\n     */\\n    function fund(uint256 amount) external {\\n        if (amount == 0) revert InvalidAmount();\\n\\n        uint256 newTotal = totalAllocated + amount;\\n        if (newTotal > proposedFund) revert CapExceeded();\\n\\n        allocatedFund[msg.sender] += amount;\\n        totalAllocated = newTotal;\\n\\n        emit ProposalVoted(msg.sender, address(this), amount);\\n        emit FundsAllocated(msg.sender, amount);\\n    }\\n\\n    // --------------------------------------------------\\n    // VIEWS: Helpers\\n    // --------------------------------------------------\\n    /// @notice Remaining capacity before reaching the cap.\\n    function remainingFund() public view returns (uint256) {\\n        uint256 allocated = totalAllocated;\\n        return allocated >= proposedFund ? 0 : (proposedFund - allocated);\\n    }\\n\\n    /// @notice Whether the cap has been fully reached.\\n    function isFull() public view returns (bool) {\\n        return totalAllocated >= proposedFund;\\n    }\\n\\n    /// @notice Whether a given amount could be allocated right now.\\n    function canAllocate(uint256 amount) public view returns (bool) {\\n        return amount > 0 && (totalAllocated + amount) <= proposedFund;\\n    }\\n\\n    /// @notice Headroom for a specific user (currently same as global remaining).\\n    /// @dev Kept in case you later add per-user limits/logic.\\n    function availableToAllocate(address /*user*/) public view returns (uint256) {\\n        return remainingFund();\\n    }\\n}\\n\",\"keccak256\":\"0x64d61257ad17dc37c7c3cd23d080e0f04ed5b09b9d92305a2735bf13d0c273aa\",\"license\":\"MIT\"},\"contracts/structs/ProposalStructs.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nstruct CreateDAO {\\n    string proposalName;\\n    uint256 id;\\n}\\n\\nstruct CreateProposal {\\n    string proposalName;\\n    uint256 id;\\n    uint256 proposedFund;\\n}\\n\\nenum ProposalType {\\n    DAO,\\n    Business\\n}\\n\\nstruct ProposalInfo {\\n    uint256 id;\\n    ProposalType proposalType;\\n    address proposalAddress;\\n    address creator;\\n}\\n\",\"keccak256\":\"0x19116bb2f34910197dfd5b935ad20ce93947480c706b9c1e9822652dd12cbe3f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061001961001e565b6100d0565b7ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00805468010000000000000000900460ff161561006e5760405163f92ee8a960e01b815260040160405180910390fd5b80546001600160401b03908116146100cd5780546001600160401b0319166001600160401b0390811782556040519081527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b50565b610b66806100df6000396000f3fe608060405234801561001057600080fd5b50600436106101005760003560e01c806373498efd11610097578063af640d0f11610066578063af640d0f14610200578063babd3d9a14610209578063ca1d209d14610216578063f2fde38b1461022957600080fd5b806373498efd146101bc5780638b466b77146101dc5780638da5cb5b146101e5578063966dae0e146101ed57600080fd5b80635254a9ba116100d35780635254a9ba146101675780636a2275db1461018a578063715018a61461019f578063722cfea0146101a957600080fd5b80632352a864146101055780633994a2681461013557806345f7f2491461014b57806349d249fc14610154575b600080fd5b600154610118906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61013d61023c565b60405190815260200161012c565b61013d60055481565b61013d6101623660046107a6565b610269565b61017a6101753660046107c8565b610279565b604051901515815260200161012c565b61019261029e565b60405161012c91906107e1565b6101a761032c565b005b6101a76101b736600461082f565b610340565b61013d6101ca3660046107a6565b60066020526000908152604090205481565b61013d60045481565b610118610506565b600054610118906001600160a01b031681565b61013d60035481565b600454600554101561017a565b6101a76102243660046107c8565b610534565b6101a76102373660046107a6565b610623565b60055460045460009190811015610260578060045461025b91906108b9565b610263565b60005b91505090565b600061027361023c565b92915050565b6000808211801561027357506004548260055461029691906108cc565b111592915050565b600280546102ab906108df565b80601f01602080910402602001604051908101604052809291908181526020018280546102d7906108df565b80156103245780601f106102f957610100808354040283529160200191610324565b820191906000526020600020905b81548152906001019060200180831161030757829003601f168201915b505050505081565b610334610666565b61033e6000610698565b565b600061034a610709565b805490915060ff600160401b820416159067ffffffffffffffff166000811580156103725750825b905060008267ffffffffffffffff16600114801561038f5750303b155b90508115801561039d575080155b156103bb5760405163f92ee8a960e01b815260040160405180910390fd5b845467ffffffffffffffff1916600117855583156103e557845460ff60401b1916600160401b1785555b336001600160a01b038a161461040e57604051630636a15760e11b815260040160405180910390fd5b61041786610732565b600080546001600160a01b03808c166001600160a01b03199283161790925560018054928b16929091169190911790556104518780610919565b60029161045f9190836109cc565b5060208701356003556040870135600455307f45b8dd5cf908585ae168a68c01ba622b42fa0c9abdeb126dde3a98e80b94dd7d61049a610506565b6004546040516104ad9291600291610a8d565b60405180910390a283156104fb57845460ff60401b19168555604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b505050505050505050565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300546001600160a01b031690565b806000036105555760405163162908e360e11b815260040160405180910390fd5b60008160055461056591906108cc565b905060045481111561058a5760405163a4875a4960e01b815260040160405180910390fd5b33600090815260066020526040812080548492906105a99084906108cc565b90915550506005819055604051828152309033907fafb5d9f9c89c99dc7dcb68f4d3ce0b2ad9ca1ab4b7d0038bebd04c11ae0a3c239060200160405180910390a360405182815233907f870f86672db2c7b197484fa0218e97fe38eb7c89fd39ed2c4c910734c66182f89060200160405180910390a25050565b61062b610666565b6001600160a01b03811661065a57604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61066381610698565b50565b3361066f610506565b6001600160a01b03161461033e5760405163118cdaa760e01b8152336004820152602401610651565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c19930080546001600160a01b031981166001600160a01b03848116918217845560405192169182907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3505050565b6000807ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00610273565b61073a610743565b61066381610768565b61074b610770565b61033e57604051631afcd79f60e31b815260040160405180910390fd5b61062b610743565b600061077a610709565b54600160401b900460ff16919050565b80356001600160a01b03811681146107a157600080fd5b919050565b6000602082840312156107b857600080fd5b6107c18261078a565b9392505050565b6000602082840312156107da57600080fd5b5035919050565b600060208083528351808285015260005b8181101561080e578581018301518582016040015282016107f2565b506000604082860101526040601f19601f8301168501019250505092915050565b6000806000806080858703121561084557600080fd5b61084e8561078a565b935061085c6020860161078a565b9250604085013567ffffffffffffffff81111561087857600080fd5b85016060818803121561088a57600080fd5b91506108986060860161078a565b905092959194509250565b634e487b7160e01b600052601160045260246000fd5b81810381811115610273576102736108a3565b80820180821115610273576102736108a3565b600181811c908216806108f357607f821691505b60208210810361091357634e487b7160e01b600052602260045260246000fd5b50919050565b6000808335601e1984360301811261093057600080fd5b83018035915067ffffffffffffffff82111561094b57600080fd5b60200191503681900382131561096057600080fd5b9250929050565b634e487b7160e01b600052604160045260246000fd5b601f8211156109c757600081815260208120601f850160051c810160208610156109a45750805b601f850160051c820191505b818110156109c3578281556001016109b0565b5050505b505050565b67ffffffffffffffff8311156109e4576109e4610967565b6109f8836109f283546108df565b8361097d565b6000601f841160018114610a2c5760008515610a145750838201355b600019600387901b1c1916600186901b178355610a86565b600083815260209020601f19861690835b82811015610a5d5786850135825560209485019460019092019101610a3d565b5086821015610a7a5760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b60018060a01b03841681526000602060608184015260008554610aaf816108df565b8060608701526080600180841660008114610ad15760018114610aeb57610b19565b60ff1985168984015283151560051b890183019550610b19565b8a6000528660002060005b85811015610b115781548b8201860152908301908801610af6565b8a0184019650505b50505050506040939093019390935250939250505056fea264697066735822122048695604ee603184ad236e8120a88a7aa3a55f61fc0c0a8623baded457e4e7ad64736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101005760003560e01c806373498efd11610097578063af640d0f11610066578063af640d0f14610200578063babd3d9a14610209578063ca1d209d14610216578063f2fde38b1461022957600080fd5b806373498efd146101bc5780638b466b77146101dc5780638da5cb5b146101e5578063966dae0e146101ed57600080fd5b80635254a9ba116100d35780635254a9ba146101675780636a2275db1461018a578063715018a61461019f578063722cfea0146101a957600080fd5b80632352a864146101055780633994a2681461013557806345f7f2491461014b57806349d249fc14610154575b600080fd5b600154610118906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61013d61023c565b60405190815260200161012c565b61013d60055481565b61013d6101623660046107a6565b610269565b61017a6101753660046107c8565b610279565b604051901515815260200161012c565b61019261029e565b60405161012c91906107e1565b6101a761032c565b005b6101a76101b736600461082f565b610340565b61013d6101ca3660046107a6565b60066020526000908152604090205481565b61013d60045481565b610118610506565b600054610118906001600160a01b031681565b61013d60035481565b600454600554101561017a565b6101a76102243660046107c8565b610534565b6101a76102373660046107a6565b610623565b60055460045460009190811015610260578060045461025b91906108b9565b610263565b60005b91505090565b600061027361023c565b92915050565b6000808211801561027357506004548260055461029691906108cc565b111592915050565b600280546102ab906108df565b80601f01602080910402602001604051908101604052809291908181526020018280546102d7906108df565b80156103245780601f106102f957610100808354040283529160200191610324565b820191906000526020600020905b81548152906001019060200180831161030757829003601f168201915b505050505081565b610334610666565b61033e6000610698565b565b600061034a610709565b805490915060ff600160401b820416159067ffffffffffffffff166000811580156103725750825b905060008267ffffffffffffffff16600114801561038f5750303b155b90508115801561039d575080155b156103bb5760405163f92ee8a960e01b815260040160405180910390fd5b845467ffffffffffffffff1916600117855583156103e557845460ff60401b1916600160401b1785555b336001600160a01b038a161461040e57604051630636a15760e11b815260040160405180910390fd5b61041786610732565b600080546001600160a01b03808c166001600160a01b03199283161790925560018054928b16929091169190911790556104518780610919565b60029161045f9190836109cc565b5060208701356003556040870135600455307f45b8dd5cf908585ae168a68c01ba622b42fa0c9abdeb126dde3a98e80b94dd7d61049a610506565b6004546040516104ad9291600291610a8d565b60405180910390a283156104fb57845460ff60401b19168555604051600181527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d29060200160405180910390a15b505050505050505050565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300546001600160a01b031690565b806000036105555760405163162908e360e11b815260040160405180910390fd5b60008160055461056591906108cc565b905060045481111561058a5760405163a4875a4960e01b815260040160405180910390fd5b33600090815260066020526040812080548492906105a99084906108cc565b90915550506005819055604051828152309033907fafb5d9f9c89c99dc7dcb68f4d3ce0b2ad9ca1ab4b7d0038bebd04c11ae0a3c239060200160405180910390a360405182815233907f870f86672db2c7b197484fa0218e97fe38eb7c89fd39ed2c4c910734c66182f89060200160405180910390a25050565b61062b610666565b6001600160a01b03811661065a57604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61066381610698565b50565b3361066f610506565b6001600160a01b03161461033e5760405163118cdaa760e01b8152336004820152602401610651565b7f9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c19930080546001600160a01b031981166001600160a01b03848116918217845560405192169182907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a3505050565b6000807ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00610273565b61073a610743565b61066381610768565b61074b610770565b61033e57604051631afcd79f60e31b815260040160405180910390fd5b61062b610743565b600061077a610709565b54600160401b900460ff16919050565b80356001600160a01b03811681146107a157600080fd5b919050565b6000602082840312156107b857600080fd5b6107c18261078a565b9392505050565b6000602082840312156107da57600080fd5b5035919050565b600060208083528351808285015260005b8181101561080e578581018301518582016040015282016107f2565b506000604082860101526040601f19601f8301168501019250505092915050565b6000806000806080858703121561084557600080fd5b61084e8561078a565b935061085c6020860161078a565b9250604085013567ffffffffffffffff81111561087857600080fd5b85016060818803121561088a57600080fd5b91506108986060860161078a565b905092959194509250565b634e487b7160e01b600052601160045260246000fd5b81810381811115610273576102736108a3565b80820180821115610273576102736108a3565b600181811c908216806108f357607f821691505b60208210810361091357634e487b7160e01b600052602260045260246000fd5b50919050565b6000808335601e1984360301811261093057600080fd5b83018035915067ffffffffffffffff82111561094b57600080fd5b60200191503681900382131561096057600080fd5b9250929050565b634e487b7160e01b600052604160045260246000fd5b601f8211156109c757600081815260208120601f850160051c810160208610156109a45750805b601f850160051c820191505b818110156109c3578281556001016109b0565b5050505b505050565b67ffffffffffffffff8311156109e4576109e4610967565b6109f8836109f283546108df565b8361097d565b6000601f841160018114610a2c5760008515610a145750838201355b600019600387901b1c1916600186901b178355610a86565b600083815260209020601f19861690835b82811015610a5d5786850135825560209485019460019092019101610a3d565b5086821015610a7a5760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b60018060a01b03841681526000602060608184015260008554610aaf816108df565b8060608701526080600180841660008114610ad15760018114610aeb57610b19565b60ff1985168984015283151560051b890183019550610b19565b8a6000528660002060005b85811015610b115781548b8201860152908301908801610af6565b8a0184019650505b50505050506040939093019390935250939250505056fea264697066735822122048695604ee603184ad236e8120a88a7aa3a55f61fc0c0a8623baded457e4e7ad64736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "InvalidInitialization()": [
+        {
+          "details": "The contract is already initialized."
+        }
+      ],
+      "NotInitializing()": [
+        {
+          "details": "The contract is not initializing."
+        }
+      ],
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "events": {
+      "Initialized(uint64)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "availableToAllocate(address)": {
+        "details": "Kept in case you later add per-user limits/logic."
+      },
+      "constructor": {
+        "details": "Lock the logic/implementation contract."
+      },
+      "fund(uint256)": {
+        "details": "Enforces that totalAllocated never exceeds proposedFund."
+      },
+      "initialize(address,address,(string,uint256,uint256),address)": {
+        "params": {
+          "_config": "Proposal config (expects proposalName, id, proposedFund).",
+          "_erc721Address": "Optional reference (kept for symmetry/extensibility).",
+          "_factoryAddress": "The address of ProposalFactory.",
+          "_initialOwner": "The EOA that will own/admin this clone."
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "BusinessProposalImplementation",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "allocatedFund(address)": {
+        "notice": "Mapping [participantAddress] => allocated amount"
+      },
+      "availableToAllocate(address)": {
+        "notice": "Headroom for a specific user (currently same as global remaining)."
+      },
+      "canAllocate(uint256)": {
+        "notice": "Whether a given amount could be allocated right now."
+      },
+      "fund(uint256)": {
+        "notice": "Allocate funds towards this proposal (tracked in contract state)."
+      },
+      "initialize(address,address,(string,uint256,uint256),address)": {
+        "notice": "Initializes the contract with the given parameters."
+      },
+      "isFull()": {
+        "notice": "Whether the cap has been fully reached."
+      },
+      "remainingFund()": {
+        "notice": "Remaining capacity before reaching the cap."
+      }
+    },
+    "notice": "Implementation for Business Proposal with a hard fundraising cap.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8066,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "factoryAddress",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 8068,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "erc721Address",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 8070,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "proposalName",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 8072,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "id",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8074,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "proposedFund",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8076,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "totalAllocated",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8081,
+        "contract": "contracts/BusinessProposalImplementation.sol:BusinessProposalImplementation",
+        "label": "allocatedFund",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
