@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.30;
 
 import "@openzeppelin/contracts/proxy/Clones.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -9,120 +9,81 @@ import "./DAOImplementation.sol";
 import { ProposalInfo, ProposalType, CreateDAO, CreateProposal } from "./structs/ProposalStructs.sol";
 
 contract ProposalFactory is Ownable {
-	using Clones for address;
+  using Clones for address;
 
-	// ---------------------------------------------------------------------
-	// Types / Events
-	// ---------------------------------------------------------------------
+  // ---------------------------------------------------------------------
+  // Types / Events
+  // ---------------------------------------------------------------------
 
-	event ProposalCreated(
-		address indexed creator,
-		address indexed proposalAddress,
-		ProposalType proposalType,
-		uint256 id
-	);
+  event ProposalCreated(
+    address indexed creator,
+    address indexed proposalAddress,
+    ProposalType proposalType,
+    uint256 id
+  );
 
-	// ---------------------------------------------------------------------
-	// Storage
-	// ---------------------------------------------------------------------
+  // ---------------------------------------------------------------------
+  // Storage
+  // ---------------------------------------------------------------------
 
-	address public daoImplementation;
-	address public bpImplementation;
-	address public erc721Address;
+  address public daoImplementation;
+  address public bpImplementation;
+  address public erc721Address;
 
-	ProposalInfo[] private _proposals;
+  ProposalInfo[] private _proposals;
 
-	constructor(
-		address _daoImpl,
-		address _bpImpl,
-		address _erc721Address
-	) Ownable(msg.sender) {
-		daoImplementation = _daoImpl;
-		bpImplementation = _bpImpl;
-		erc721Address = _erc721Address;
-	}
+  constructor(address _daoImpl, address _bpImpl, address _erc721Address) Ownable(msg.sender) {
+    daoImplementation = _daoImpl;
+    bpImplementation = _bpImpl;
+    erc721Address = _erc721Address;
+  }
 
-	// ---------------------------------------------------------------------
-	// Create functions (split)
-	// ---------------------------------------------------------------------
+  // ---------------------------------------------------------------------
+  // Create functions (split)
+  // ---------------------------------------------------------------------
 
-	/**
-	 * @notice Creates a new DAO proposal contract (ProposalType.DAO).
-	 */
-	function createDAOProposal(
-		CreateDAO calldata _config
-	) external returns (address proposalAddress) {
-		proposalAddress = daoImplementation.clone();
-		// owner of the clone = msg.sender (EOA that called the factory)
-		DAOImplementation(proposalAddress).initialize(
-			address(this),
-			erc721Address,
-			_config,
-			msg.sender
-		);
+  /**
+   * @notice Creates a new DAO proposal contract (ProposalType.DAO).
+   */
+  function createDAOProposal(CreateDAO calldata _config) external returns (address proposalAddress) {
+    proposalAddress = daoImplementation.clone();
+    // owner of the clone = msg.sender (EOA that called the factory)
+    DAOImplementation(proposalAddress).initialize(address(this), erc721Address, _config, msg.sender);
 
-		uint256 newId = _proposals.length + 1;
-		_proposals.push(
-			ProposalInfo(newId, ProposalType.DAO, proposalAddress, msg.sender)
-		);
+    uint256 newId = _proposals.length + 1;
+    _proposals.push(ProposalInfo(newId, ProposalType.DAO, proposalAddress, msg.sender));
 
-		emit ProposalCreated(
-			msg.sender,
-			proposalAddress,
-			ProposalType.DAO,
-			newId
-		);
-	}
+    emit ProposalCreated(msg.sender, proposalAddress, ProposalType.DAO, newId);
+  }
 
-	/**
-	 * @notice Creates a new BP proposal contract (ProposalType.BP).
-	 */
-	function createBusinessProposal(
-		CreateProposal calldata _config
-	) external returns (address proposalAddress) {
-		proposalAddress = bpImplementation.clone();
-		// owner of the clone = msg.sender (EOA that called the factory)
-		BusinessProposalImplementation(proposalAddress).initialize(
-			address(this),
-			erc721Address,
-			_config,
-			msg.sender
-		);
+  /**
+   * @notice Creates a new BP proposal contract (ProposalType.BP).
+   */
+  function createBusinessProposal(CreateProposal calldata _config) external returns (address proposalAddress) {
+    proposalAddress = bpImplementation.clone();
+    // owner of the clone = msg.sender (EOA that called the factory)
+    BusinessProposalImplementation(proposalAddress).initialize(address(this), erc721Address, _config, msg.sender);
 
-		uint256 newId = _proposals.length + 1;
-		_proposals.push(
-			ProposalInfo(
-				newId,
-				ProposalType.Business,
-				proposalAddress,
-				msg.sender
-			)
-		);
+    uint256 newId = _proposals.length + 1;
+    _proposals.push(ProposalInfo(newId, ProposalType.Business, proposalAddress, msg.sender));
 
-		emit ProposalCreated(
-			msg.sender,
-			proposalAddress,
-			ProposalType.Business,
-			newId
-		);
-	}
+    emit ProposalCreated(msg.sender, proposalAddress, ProposalType.Business, newId);
+  }
 
-	// ---------------------------------------------------------------------
-	// Getter functions
-	// ---------------------------------------------------------------------
+  // ---------------------------------------------------------------------
+  // Getter functions
+  // ---------------------------------------------------------------------
 
-	function getProposal(
-		uint256 id
-	) external view returns (ProposalInfo memory) {
-		require(id < _proposals.length, "Proposal does not exist");
-		return _proposals[id];
-	}
+  function getProposal(uint256 id) external view returns (ProposalInfo memory) {
+    require(id < _proposals.length, "Proposal does not exist");
+    return _proposals[id];
+  }
 
-	function getAllProposals() external view returns (ProposalInfo[] memory) {
-		return _proposals;
-	}
+  function getAllProposals() external view returns (ProposalInfo[] memory) {
+    return _proposals;
+  }
 
-	function totalProposals() external view returns (uint256) {
-		return _proposals.length;
-	}
+  function totalProposals() external view returns (uint256) {
+    return _proposals.length;
+  }
 }
